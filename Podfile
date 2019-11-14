@@ -1,2 +1,2 @@
-target 'DirectMe' dos
+target 'DirectMe' do
 end
