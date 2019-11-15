@@ -11,15 +11,29 @@ import SwiftUI
 struct HistoryView: View {
     
     var body: some View {
-        NavigationView{
+        NavigationView {
             List (historyData) { history in
                 NavigationLink(destination: HistoryDetail(history: history)) {
                     HistoryRow(history: history)
                 }
             }
-            .navigationBarTitle(Text("History"))
+            .navigationBarTitle(Text("History"), displayMode: .inline)
+            .navigationBarItems(leading:
+                Button(action: {
+                    print("Tapped")
+                }, label: {
+                    HStack{
+                        Image(systemName: "square.and.arrow.up")
+                        .resizable()
+                        .frame(width: 16.0, height: 16.0, alignment: .center)
+                        .rotationEffect(.degrees(-90))
+                        Text("Sign-Out")
+                            .font(.footnote)
+                    }
+                })
+            )
         }
-    }//.appearance().backgroundColor = UIColor(red: 244/255, green: 160/255, blue: 0/255, alpha: 1)
+    }
 }
 
 struct HistoryView_Previews: PreviewProvider {

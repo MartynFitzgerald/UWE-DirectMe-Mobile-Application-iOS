@@ -111,12 +111,22 @@
 		5A3C7BCE237E13E900782098 /* History */ = {
 			isa = PBXGroup;
 			children = (
+				5A366773237DFBFF00C494D9 /* CircleImage.swift */,
 				5A366766237DEAFC00C494D9 /* HistoryView.swift */,
 				5A36676A237DEE1600C494D9 /* HistoryRow.swift */,
 				5A366771237DF8EF00C494D9 /* HistoryDetail.swift */,
 				5A366775237DFC6D00C494D9 /* HistoryMapView.swift */,
 			);
 			path = History;
+			sourceTree = "<group>";
+		};
+		5A3C7BCF237F35FC00782098 /* Nav */ = {
+			isa = PBXGroup;
+			children = (
+				5A565B9F237C708E008DB7EB /* NavView.swift */,
+				5AB4069E237C9B4600091E3A /* MapView.swift */,
+			);
+			path = Nav;
 			sourceTree = "<group>";
 		};
 		5A565B6A237B15D9008DB7EB = {
@@ -163,13 +173,11 @@
 		5A565B8B237B16D4008DB7EB /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				5A366768237DEBF600C494D9 /* AccountView.swift */,
+				5A3C7BCF237F35FC00782098 /* Nav */,
 				5A3C7BCE237E13E900782098 /* History */,
 				5A565B99237B193C008DB7EB /* Main.storyboard */,
 				5A565B81237B15DB008DB7EB /* LaunchScreen.storyboard */,
-				5A565B9F237C708E008DB7EB /* NavView.swift */,
-				5AB4069E237C9B4600091E3A /* MapView.swift */,
-				5A366768237DEBF600C494D9 /* AccountView.swift */,
-				5A366773237DFBFF00C494D9 /* CircleImage.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
