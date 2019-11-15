@@ -14,15 +14,22 @@ struct HistoryRow: View {
     var body: some View {
         HStack{
             Image(systemName: "clock")
-                .resizable()
-                .frame(width: 50, height: 50)
-            Text(history.name)
+            VStack (alignment: .leading) {
+                Text(history.name)
+                    .font(.body)
+                Text(history.state)
+                    .font(.subheadline)
+            }
         }
+        .padding(10)
     }
 }
 
 struct HistoryRow_Previews: PreviewProvider {
     static var previews: some View {
-        HistoryRow(history: historyData[0])
+        Group {
+            HistoryRow(history: historyData[0])
+            HistoryRow(history: historyData[1])
+        }.previewLayout(.fixed(width:300, height: 70))
     }
 }

@@ -17,7 +17,7 @@ class ViewController: UIViewController {
     }
 
     @IBSegueAction func addSwiftUIView(_ coder: NSCoder) -> UIViewController? {
-        return UIHostingController(coder:coder, rootView: MainView())
+        return UIHostingController(coder:coder, rootView: NavView())
     }
 }
 

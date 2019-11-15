@@ -9,7 +9,7 @@
 import SwiftUI
 import CoreLocation
 
-struct History: Hashable, Codable {
+struct History: Hashable, Codable, Identifiable {
     var id: Int
     var name: String
     fileprivate var imageName: String
