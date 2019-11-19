@@ -36,6 +36,9 @@
 		5A565B9B237B193C008DB7EB /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5A565B99237B193C008DB7EB /* Main.storyboard */; };
 		5A565BA0237C708E008DB7EB /* NavView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A565B9F237C708E008DB7EB /* NavView.swift */; };
 		5AB4069F237C9B4600091E3A /* MapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AB4069E237C9B4600091E3A /* MapView.swift */; };
+		5AB47C942384099300C469E7 /* InformationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AB47C932384099300C469E7 /* InformationView.swift */; };
+		5AB47C9723843AAA00C469E7 /* UnknownView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AB47C9623843AAA00C469E7 /* UnknownView.swift */; };
+		5AB47C9923843E9100C469E7 /* AppleMapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AB47C9823843E9100C469E7 /* AppleMapView.swift */; };
 		9017FA41E4EBF872BAE6511F /* libPods-DirectMe.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 342B6A73BF7BB1D5C9627502 /* libPods-DirectMe.a */; };
 /* End PBXBuildFile section */
 
@@ -72,6 +75,9 @@
 		5A565B9A237B193C008DB7EB /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		5A565B9F237C708E008DB7EB /* NavView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavView.swift; sourceTree = "<group>"; };
 		5AB4069E237C9B4600091E3A /* MapView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapView.swift; sourceTree = "<group>"; };
+		5AB47C932384099300C469E7 /* InformationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InformationView.swift; sourceTree = "<group>"; };
+		5AB47C9623843AAA00C469E7 /* UnknownView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UnknownView.swift; sourceTree = "<group>"; };
+		5AB47C9823843E9100C469E7 /* AppleMapView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppleMapView.swift; sourceTree = "<group>"; };
 		62F45DCC8590A3F4F811D9F0 /* Pods-DirectMe.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DirectMe.release.xcconfig"; path = "Target Support Files/Pods-DirectMe/Pods-DirectMe.release.xcconfig"; sourceTree = "<group>"; };
 		A0834294D25913BB1F574E09 /* Pods-DirectMe.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DirectMe.debug.xcconfig"; path = "Target Support Files/Pods-DirectMe/Pods-DirectMe.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -124,6 +130,7 @@
 			isa = PBXGroup;
 			children = (
 				5A565B9F237C708E008DB7EB /* NavView.swift */,
+				5AB47C9823843E9100C469E7 /* AppleMapView.swift */,
 				5AB4069E237C9B4600091E3A /* MapView.swift */,
 			);
 			path = Nav;
@@ -163,6 +170,7 @@
 		5A565B8A237B1676008DB7EB /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				5A565B81237B15DB008DB7EB /* LaunchScreen.storyboard */,
 				5A565B76237B15D9008DB7EB /* AppDelegate.swift */,
 				5A565B78237B15D9008DB7EB /* SceneDelegate.swift */,
 				5A565B7A237B15D9008DB7EB /* ViewController.swift */,
@@ -173,11 +181,12 @@
 		5A565B8B237B16D4008DB7EB /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				5A366768237DEBF600C494D9 /* AccountView.swift */,
+				5AB47C9523843A7700C469E7 /* Unknown */,
+				5AB47C922384094C00C469E7 /* Information */,
+				5AB47C912384092400C469E7 /* Account */,
 				5A3C7BCF237F35FC00782098 /* Nav */,
 				5A3C7BCE237E13E900782098 /* History */,
 				5A565B99237B193C008DB7EB /* Main.storyboard */,
-				5A565B81237B15DB008DB7EB /* LaunchScreen.storyboard */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -189,6 +198,30 @@
 				5A3C7B99237E111800782098 /* Data.swift */,
 			);
 			path = Models;
+			sourceTree = "<group>";
+		};
+		5AB47C912384092400C469E7 /* Account */ = {
+			isa = PBXGroup;
+			children = (
+				5A366768237DEBF600C494D9 /* AccountView.swift */,
+			);
+			path = Account;
+			sourceTree = "<group>";
+		};
+		5AB47C922384094C00C469E7 /* Information */ = {
+			isa = PBXGroup;
+			children = (
+				5AB47C932384099300C469E7 /* InformationView.swift */,
+			);
+			path = Information;
+			sourceTree = "<group>";
+		};
+		5AB47C9523843A7700C469E7 /* Unknown */ = {
+			isa = PBXGroup;
+			children = (
+				5AB47C9623843AAA00C469E7 /* UnknownView.swift */,
+			);
+			path = Unknown;
 			sourceTree = "<group>";
 		};
 		9157D7059995F9B5546D4537 /* Frameworks */ = {
@@ -325,8 +358,11 @@
 				5AB4069F237C9B4600091E3A /* MapView.swift in Sources */,
 				5A366769237DEBF600C494D9 /* AccountView.swift in Sources */,
 				5A36676B237DEE1600C494D9 /* HistoryRow.swift in Sources */,
+				5AB47C942384099300C469E7 /* InformationView.swift in Sources */,
+				5AB47C9923843E9100C469E7 /* AppleMapView.swift in Sources */,
 				5A565BA0237C708E008DB7EB /* NavView.swift in Sources */,
 				5A3C7B9A237E111800782098 /* Data.swift in Sources */,
+				5AB47C9723843AAA00C469E7 /* UnknownView.swift in Sources */,
 				5A366774237DFBFF00C494D9 /* CircleImage.swift in Sources */,
 				5A565B79237B15D9008DB7EB /* SceneDelegate.swift in Sources */,
 				5A366776237DFC6D00C494D9 /* HistoryMapView.swift in Sources */,

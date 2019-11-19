@@ -9,28 +9,43 @@
 import SwiftUI
 
 struct NavView: View {
+    
+    @State private var selection = 2
+    
     init () {
+        switch selection {
+        case 0:
+            UITabBar.appearance().backgroundColor = UIColor(red: 15/255, green: 15/255, blue: 15/255, alpha: 1)
+        case 1:
+            UITabBar.appearance().backgroundColor = UIColor(red: 15/255, green: 15/255, blue: 15/255, alpha: 1)
+        case 2:
+            UITabBar.appearance().backgroundColor = UIColor(red: 15/255, green: 157/255, blue: 88/255, alpha: 1)
+        case 3:
+            UITabBar.appearance().backgroundColor = UIColor(red: 15/255, green: 15/255, blue: 15/255, alpha: 1)
+        case 4:
+            UITabBar.appearance().backgroundColor = UIColor(red: 15/255, green: 15/255, blue: 15/255, alpha: 1)
+        default:
+            UITabBar.appearance().backgroundColor = UIColor(red: 15/255, green: 157/255, blue: 88/255, alpha: 1)
+        }
         UITabBar.appearance().shadowImage = UIImage()
         UITabBar.appearance().backgroundImage = UIImage()
         UITabBar.appearance().isTranslucent = true
-        UITabBar.appearance().backgroundColor = UIColor(red: 15/255, green: 157/255, blue: 88/255, alpha: 1)
+        // UITabBar.appearance().backgroundColor = UIColor(red: 15/255, green: 157/255, blue: 88/255, alpha: 1)
         UITabBar.appearance().unselectedItemTintColor = UIColor(red: 204/255, green: 204/255, blue: 204/255, alpha: 1)
         //Set defualt background color as green color
         UINavigationBar.appearance().shadowImage = UIImage()
-        UINavigationBar.appearance().isTranslucent = true
         UINavigationBar.appearance().backgroundColor = UIColor(red: 15/255, green: 157/255, blue: 88/255, alpha: 1)
+        UINavigationBar.appearance().barTintColor = UIColor(red: 15/255, green: 157/255, blue: 88/255, alpha: 1)
         UINavigationBar.appearance().titleTextAttributes = [.foregroundColor: UIColor.white]
         UINavigationBar.appearance().largeTitleTextAttributes = [.foregroundColor: UIColor.white]
+        UINavigationBar.appearance().isTranslucent = true
         
     }
-    
-    @State private var selection = 2
-    @State var enlargeIt1 : Bool = false
 
     
     var body: some View {
             TabView(selection: $selection){
-                Text("Information View")
+                InformationView()
                     .font(.title)
                     .tabItem {
                         VStack {
@@ -38,21 +53,15 @@ struct NavView: View {
                             .animation(.interpolatingSpring(mass: 0.7, stiffness: 200, damping: 10, initialVelocity: 4))
                             Text("Info")
                         }
-                        .onTapGesture {
-                            self.enlargeIt1.toggle()
-                        }
                     }
                     .tag(0)
-                Text("Second View")
+                UnknownView()
                     .font(.title)
                     .tabItem {
                         VStack {
                             Image(systemName: "questionmark.circle")
                             .animation(.interpolatingSpring(mass: 0.7, stiffness: 200, damping: 10, initialVelocity: 4))
                             Text("Unknown")
-                        }
-                        .onTapGesture {
-                            self.enlargeIt1.toggle()
                         }
                     }
                     .tag(1)
@@ -64,9 +73,6 @@ struct NavView: View {
                             .animation(.interpolatingSpring(mass: 0.7, stiffness: 200, damping: 10, initialVelocity: 4))
                             Text("Map")
                         }
-                        .onTapGesture {
-                            self.enlargeIt1.toggle()
-                        }
                     }
                     .tag(2)
                 HistoryView()
@@ -76,9 +82,6 @@ struct NavView: View {
                             Image(systemName: "clock")
                             .animation(.interpolatingSpring(mass: 0.7, stiffness: 200, damping: 10, initialVelocity: 4))
                             Text("History")
-                        }
-                        .onTapGesture {
-                            self.enlargeIt1.toggle()
                         }
                     }
                     .tag(3)
@@ -90,9 +93,9 @@ struct NavView: View {
                             .animation(.interpolatingSpring(mass: 0.7, stiffness: 200, damping: 10, initialVelocity: 4))
                             Text("Account")
                         }
-                        .onTapGesture {
-                            self.enlargeIt1.toggle()
-                        }
+                        //.onTapGesture {
+                        //    self.enlargeIt1.toggle()
+                        //}
                     }
                     .tag(4)
             }
@@ -103,22 +106,6 @@ struct NavView: View {
             //    print(selection)
             //}
     }
-    /*
-    switch selection {
-    case 0:
-        UITabBar.appearance().backgroundColor = UIColor(red: 15/255, green: 15/255, blue: 15/255, alpha: 1)
-    case 1:
-        UITabBar.appearance().backgroundColor = UIColor(red: 15/255, green: 15/255, blue: 15/255, alpha: 1)
-    case 2:
-        UITabBar.appearance().backgroundColor = UIColor(red: 15/255, green: 157/255, blue: 88/255, alpha: 1)
-    case 3:
-        UITabBar.appearance().backgroundColor = UIColor(red: 15/255, green: 15/255, blue: 15/255, alpha: 1)
-    case 4:
-        UITabBar.appearance().backgroundColor = UIColor(red: 15/255, green: 15/255, blue: 15/255, alpha: 1)
-    default:
-        UITabBar.appearance().backgroundColor = UIColor(red: 15/255, green: 157/255, blue: 88/255, alpha: 1)
-    }*/
-    
 }
 
 struct NavView_Previews: PreviewProvider {

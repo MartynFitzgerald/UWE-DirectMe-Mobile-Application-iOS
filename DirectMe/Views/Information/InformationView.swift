@@ -1,19 +1,22 @@
 //
-//  AccountView.swift
+//  InformationView.swift
 //  DirectMe
 //
-//  Created by martyn on 14/11/2019.
+//  Created by martyn on 19/11/2019.
 //  Copyright © 2019 martyn.fitzgerald. All rights reserved.
 //
 
 import SwiftUI
 
-struct AccountView: View {
+struct InformationView: View {
+    
+    //UINavigationBar.appearance().backgroundColor = UIColor(red: 0/255, green: 0/255, blue: 255/255, alpha: 1)
+    //UINavigationBar.appearance().barTintColor = UIColor(red: 0/255, green: 0/255, blue: 255/255, alpha: 1)
+
     var body: some View {
         NavigationView {
-            Text("Account View")
-            .navigationBarTitle(Text("Account"), displayMode: .inline)
-            
+            Text("Information")
+            .navigationBarTitle(Text("Information"), displayMode: .inline)
             .navigationBarItems(leading:
                 Button(action: {
                     print("Tapped")
@@ -21,10 +24,8 @@ struct AccountView: View {
                     HStack{
                         Image(systemName: "square.and.arrow.up")
                         .resizable()
-                        .frame(width: 16.0, height: 16.0, alignment: .center)
+                        .frame(width: 20.0, height: 20.0, alignment: .center)
                         .rotationEffect(.degrees(-90))
-                        Text("Sign-Out")
-                            .font(.footnote)
                     }
                 })
             )
@@ -32,8 +33,8 @@ struct AccountView: View {
     }
 }
 
-struct AccountView_Previews: PreviewProvider {
+struct InformationView_Previews: PreviewProvider {
     static var previews: some View {
-        AccountView()
+        InformationView()
     }
 }

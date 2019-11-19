@@ -1,18 +1,18 @@
 //
-//  MapView.swift
+//  UnknownView.swift
 //  DirectMe
 //
-//  Created by martyn on 13/11/2019.
+//  Created by martyn on 19/11/2019.
 //  Copyright © 2019 martyn.fitzgerald. All rights reserved.
 //
 
 import SwiftUI
 
-struct MapView: View {
+struct UnknownView: View {
     var body: some View {
         NavigationView {
-            AppleMapView()
-            .navigationBarTitle(Text("Map"), displayMode: .inline)
+            Text("Unknown")
+            .navigationBarTitle(Text("Unknown"), displayMode: .inline)
             .navigationBarItems(leading:
                 Button(action: {
                     print("Tapped")
@@ -29,8 +29,8 @@ struct MapView: View {
     }
 }
 
-struct MapView_Preview: PreviewProvider {
+struct UnknownView_Previews: PreviewProvider {
     static var previews: some View {
-        MapView()
+        UnknownView()
     }
 }
