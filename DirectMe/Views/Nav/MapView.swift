@@ -26,6 +26,7 @@ struct MapView: View {
                 })
             )
         }
+        .edgesIgnoringSafeArea(.all)
     }
 }
 
