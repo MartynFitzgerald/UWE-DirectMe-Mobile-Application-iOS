@@ -84,14 +84,22 @@
                                     <segue destination="ldo-fY-wkh" kind="show" id="jed-3S-jj5"/>
                                 </connections>
                             </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="R9r-Jc-l31">
+                                <rect key="frame" x="188" y="465" width="0.0" height="0.0"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" systemColor="systemRedColor" red="1" green="0.23137254900000001" blue="0.18823529410000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                     <navigationItem key="navigationItem" id="pae-3g-0Dy"/>
                     <connections>
-                        <outlet property="inputEmail" destination="re4-8N-Zsk" id="N24-U4-j0m"/>
-                        <outlet property="inputPassword" destination="F82-hT-POX" id="Kfh-YB-15z"/>
+                        <outlet property="emailTextField" destination="re4-8N-Zsk" id="Uj4-jo-mij"/>
+                        <outlet property="errorLabel" destination="R9r-Jc-l31" id="3ig-zX-83f"/>
+                        <outlet property="passwordTextField" destination="F82-hT-POX" id="nJ6-H4-s1G"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
