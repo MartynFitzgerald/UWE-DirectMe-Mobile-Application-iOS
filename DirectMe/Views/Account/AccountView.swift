@@ -12,14 +12,10 @@ struct AccountView: View {
     var body: some View {
         NavigationView {
             VStack {
-                AppleMapView()
-                    .frame(height: 300)
-
-                //CircleImage(image: history.image)
-                //    .offset(y: -130)
-                //    .padding(.bottom, -130)
-
-                VStack(alignment: .leading) {
+                VStack(alignment: .center) {
+                    //CircleImage(image: Image("turtlerock.jpg"))
+                      //.offset(y: -130)
+                      //.padding(.bottom, -130)
                     Text("Martyn Fitzgerald")
                         .font(.title)
                     Text("Email")
@@ -27,7 +23,9 @@ struct AccountView: View {
                     Text("Location")
                         .font(.subheadline)
                 }
-                .padding()
+                .frame(minWidth: 0, maxWidth: .infinity, minHeight: 0, maxHeight: 300)
+                .background(Color.blue)
+                .foregroundColor(Color.white)
 
                 Spacer()
             }

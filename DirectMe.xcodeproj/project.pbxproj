@@ -170,7 +170,6 @@
 		5A565B8A237B1676008DB7EB /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
-				5A565B81237B15DB008DB7EB /* LaunchScreen.storyboard */,
 				5A565B76237B15D9008DB7EB /* AppDelegate.swift */,
 				5A565B78237B15D9008DB7EB /* SceneDelegate.swift */,
 				5A565B7A237B15D9008DB7EB /* ViewController.swift */,
@@ -187,6 +186,7 @@
 				5A3C7BCF237F35FC00782098 /* Nav */,
 				5A3C7BCE237E13E900782098 /* History */,
 				5A565B99237B193C008DB7EB /* Main.storyboard */,
+				5A565B81237B15DB008DB7EB /* LaunchScreen.storyboard */,
 			);
 			path = Views;
 			sourceTree = "<group>";
