@@ -30,7 +30,8 @@
 		5AB47C9923843E9100C469E7 /* AppleMapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AB47C9823843E9100C469E7 /* AppleMapView.swift */; };
 		5AB47C9D238D8EC700C469E7 /* Logo.png in Resources */ = {isa = PBXBuildFile; fileRef = 5AB47C9C238D8EC600C469E7 /* Logo.png */; };
 		5AB47C9F239089BD00C469E7 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AB47C9E239089BD00C469E7 /* User.swift */; };
-		5AB47CA22390939400C469E7 /* userData.json in Resources */ = {isa = PBXBuildFile; fileRef = 5AB47CA12390939400C469E7 /* userData.json */; };
+		5AB47CA423914C5E00C469E7 /* RegisterController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AB47CA323914C5D00C469E7 /* RegisterController.swift */; };
+		5AB47CA62391DBB900C469E7 /* userData.json in Resources */ = {isa = PBXBuildFile; fileRef = 5AB47CA52391DBB900C469E7 /* userData.json */; };
 		9017FA41E4EBF872BAE6511F /* libPods-DirectMe.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 342B6A73BF7BB1D5C9627502 /* libPods-DirectMe.a */; };
 /* End PBXBuildFile section */
 
@@ -61,7 +62,8 @@
 		5AB47C9823843E9100C469E7 /* AppleMapView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppleMapView.swift; sourceTree = "<group>"; };
 		5AB47C9C238D8EC600C469E7 /* Logo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Logo.png; sourceTree = "<group>"; };
 		5AB47C9E239089BD00C469E7 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
-		5AB47CA12390939400C469E7 /* userData.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = userData.json; sourceTree = "<group>"; };
+		5AB47CA323914C5D00C469E7 /* RegisterController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterController.swift; sourceTree = "<group>"; };
+		5AB47CA52391DBB900C469E7 /* userData.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = userData.json; sourceTree = "<group>"; };
 		62F45DCC8590A3F4F811D9F0 /* Pods-DirectMe.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DirectMe.release.xcconfig"; path = "Target Support Files/Pods-DirectMe/Pods-DirectMe.release.xcconfig"; sourceTree = "<group>"; };
 		A0834294D25913BB1F574E09 /* Pods-DirectMe.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DirectMe.debug.xcconfig"; path = "Target Support Files/Pods-DirectMe/Pods-DirectMe.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -81,7 +83,7 @@
 		5A36676E237DF05400C494D9 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
-				5AB47CA12390939400C469E7 /* userData.json */,
+				5AB47CA52391DBB900C469E7 /* userData.json */,
 				5AB47C9C238D8EC600C469E7 /* Logo.png */,
 				5A3C7BBB237E12D400782098 /* turtlerock.jpg */,
 				5A36676F237DF09400C494D9 /* historyData.json */,
@@ -149,6 +151,7 @@
 				5A565B78237B15D9008DB7EB /* SceneDelegate.swift */,
 				5A3C7B99237E111800782098 /* DataController.swift */,
 				5A565B7A237B15D9008DB7EB /* ViewController.swift */,
+				5AB47CA323914C5D00C469E7 /* RegisterController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -282,7 +285,7 @@
 				5AB47C9D238D8EC700C469E7 /* Logo.png in Resources */,
 				5A565B80237B15DB008DB7EB /* Assets.xcassets in Resources */,
 				5A565B9B237B193C008DB7EB /* Main.storyboard in Resources */,
-				5AB47CA22390939400C469E7 /* userData.json in Resources */,
+				5AB47CA62391DBB900C469E7 /* userData.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -326,6 +329,7 @@
 				5A366769237DEBF600C494D9 /* AccountView.swift in Sources */,
 				5A36676B237DEE1600C494D9 /* HistoryRow.swift in Sources */,
 				5AB47C9F239089BD00C469E7 /* User.swift in Sources */,
+				5AB47CA423914C5E00C469E7 /* RegisterController.swift in Sources */,
 				5AB47C942384099300C469E7 /* InformationView.swift in Sources */,
 				5AB47C9923843E9100C469E7 /* AppleMapView.swift in Sources */,
 				5A565BA0237C708E008DB7EB /* NavView.swift in Sources */,

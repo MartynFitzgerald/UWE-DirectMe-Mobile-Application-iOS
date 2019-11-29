@@ -23,6 +23,15 @@ struct User: Hashable, Codable, Identifiable {
             latitude: coordinates.latitude,
             longitude: coordinates.longitude)
     }*/
+    
+    init(id: Int, firstName: String, lastName: String, email: String, password: String, image: String) {
+        self.id = id
+        self.firstName = firstName
+        self.lastName = lastName
+        self.email = email
+        self.password = password
+        self.profilePicture = image
+    }
 }
 
 extension User {

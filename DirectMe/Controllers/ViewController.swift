@@ -22,7 +22,7 @@ class ViewController: UIViewController {
     }
 
     @IBAction func loginButton(_ sender: Any) {
-        let email:String? = emailTextField.text ?? ""
+        let email:String? = (emailTextField.text ?? "").lowercased().capitalized
         let password:String? = passwordTextField.text ?? ""
         
         let isEmailValid = isValidEmail(emailStr: email!);
@@ -50,12 +50,15 @@ class ViewController: UIViewController {
                 {
                     //Store this into an array
                     print(user.id, " - ", user.firstName, " - ", user.lastName, " - ", user.email, " - ", user.password)
+
+                    //Allow user to login and send to NavView
+                    //UIHostingController(rootView: NavView())
+                    
+                    //exit()
                 }
             }
         }
         
-        //Allow user to login and send to NavView
-        //UIHostingController(rootView: NavView())
     }
     
     //@IBSegueAction func addSwiftUIView(_ coder: NSCoder) -> UIViewController? {
