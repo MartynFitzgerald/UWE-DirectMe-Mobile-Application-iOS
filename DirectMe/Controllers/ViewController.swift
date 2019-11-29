@@ -8,12 +8,13 @@
 
 import UIKit
 import SwiftUI
+import CoreLocation
 
 class ViewController: UIViewController {
 
     @IBOutlet weak var emailTextField: UITextField!
     @IBOutlet weak var passwordTextField: UITextField!
-    @IBOutlet weak var errorLabel: UILabel!
+    @IBOutlet weak var errorTextView: UITextView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -28,37 +29,38 @@ class ViewController: UIViewController {
         let isPasswordValid = isValidPassword(passwordStr: password!);
         
         //Validate email and password
-        if (isEmailValid == false && isPasswordValid == false)
+        if isEmailValid == false && isPasswordValid == false
         {
-            errorLabel.text = "Both are not valid"
+            self.errorTextView.text = "The email and password provided are not valid, please try again."
         }
-        else if (isEmailValid == false)
+        else if isEmailValid == false
         {
-            errorLabel.text = "Email is not valid"
+            self.errorTextView.text = "The email provided is not valid, please try again."
         }
-        else if (isPasswordValid == false)
+        else if isPasswordValid == false
         {
-            errorLabel.text = "Password is not valid"
+            self.errorTextView.text = "The password provided needs to contain one uppercase, three lowercase, one number, and 8-12 characters overall. Please try again."
         }
         else
         {
-            print(email!);
-            print(password!);
+            self.errorTextView.text = ""
+            for user in userData
+            {
+                if user.email == email && user.password == password
+                {
+                    //Store this into an array
+                    print(user.id, " - ", user.firstName, " - ", user.lastName, " - ", user.email, " - ", user.password)
+                }
+            }
         }
-        
-        //Check database if exist
-        
-        //Pull data from account
         
         //Allow user to login and send to NavView
         //UIHostingController(rootView: NavView())
     }
     
-    @IBSegueAction func addSwiftUIView(_ coder: NSCoder) -> UIViewController? {
-        //print(emailTextField.text);
-        //print(passwordTextField.text);
-        return UIHostingController(coder:coder, rootView: NavView())
-    }
+    //@IBSegueAction func addSwiftUIView(_ coder: NSCoder) -> UIViewController? {
+      //  return UIHostingController(coder:coder, rootView: NavView())
+    //}
     
     //Function to check if the input from the user in the emailTextField is in a email format.
     //https://stackoverflow.com/questions/25471114/how-to-validate-an-e-mail-address-in-swift
@@ -68,9 +70,9 @@ class ViewController: UIViewController {
         return emailPred.evaluate(with: emailStr)
     }
     //Function to check if the input from the user in the passwordTextField is in a password format.
-    // One uppercase, one digit, three lowercase and overall size is eight characters.
+    // One uppercase, one digit, three lowercase and overall size is between eight to twelve characters.
     func isValidPassword(passwordStr:String) -> Bool {
-        let passwordRegEx = "^(?=.*[A-Z])(?=.*[0-9])(?=.*[a-z].*[a-z].*[a-z]).{8}$"
+        let passwordRegEx = "^(?=.*[A-Z])(?=.*[0-9])(?=.*[a-z].*[a-z].*[a-z]).{8,12}$"
         let passwordPred = NSPredicate(format:"SELF MATCHES %@", passwordRegEx)
         return passwordPred.evaluate(with: passwordStr)
     }

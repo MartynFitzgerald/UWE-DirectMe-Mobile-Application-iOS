@@ -49,16 +49,8 @@
                                 </state>
                                 <connections>
                                     <action selector="loginButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="nKm-JV-LhP"/>
-                                    <segue destination="lMs-Ng-Eqx" kind="show" id="Uox-CX-D8g"/>
                                 </connections>
                             </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="DirectMe" textAlignment="center" lineBreakMode="wordWrap" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="lWe-bx-2ob">
-                                <rect key="frame" x="16" y="35" width="343" height="316"/>
-                                <autoresizingMask key="autoresizingMask" widthSizable="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="28"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Email" textAlignment="center" clearsOnBeginEditing="YES" minimumFontSize="17" id="re4-8N-Zsk">
                                 <rect key="frame" x="84" y="239" width="206" height="34"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES"/>
@@ -84,13 +76,17 @@
                                     <segue destination="ldo-fY-wkh" kind="show" id="jed-3S-jj5"/>
                                 </connections>
                             </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="R9r-Jc-l31">
-                                <rect key="frame" x="188" y="465" width="0.0" height="0.0"/>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="Logo.png" translatesAutoresizingMaskIntoConstraints="NO" id="BEM-cr-aS3">
+                                <rect key="frame" x="16" y="112" width="343" height="106"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                            </imageView>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" textAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="pcz-tt-I8V">
+                                <rect key="frame" x="37" y="465" width="300" height="128"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="textColor" systemColor="systemRedColor" red="1" green="0.23137254900000001" blue="0.18823529410000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
@@ -98,7 +94,7 @@
                     <navigationItem key="navigationItem" id="pae-3g-0Dy"/>
                     <connections>
                         <outlet property="emailTextField" destination="re4-8N-Zsk" id="Uj4-jo-mij"/>
-                        <outlet property="errorLabel" destination="R9r-Jc-l31" id="3ig-zX-83f"/>
+                        <outlet property="errorTextView" destination="pcz-tt-I8V" id="78S-Cu-w4N"/>
                         <outlet property="passwordTextField" destination="F82-hT-POX" id="nJ6-H4-s1G"/>
                     </connections>
                 </viewController>
@@ -202,6 +198,7 @@
         </scene>
     </scenes>
     <resources>
+        <image name="Logo.png" width="177.36000061035156" height="39.599998474121094"/>
         <image name="arrow.left" catalog="system" width="64" height="48"/>
     </resources>
 </document>
