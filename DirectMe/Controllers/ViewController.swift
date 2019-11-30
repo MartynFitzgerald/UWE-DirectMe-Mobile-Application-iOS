@@ -10,15 +10,24 @@ import UIKit
 import SwiftUI
 import CoreLocation
 
-class ViewController: UIViewController {
+class ViewController: UIViewController, CLLocationManagerDelegate {
 
     @IBOutlet weak var emailTextField: UITextField!
     @IBOutlet weak var passwordTextField: UITextField!
     @IBOutlet weak var errorTextView: UITextView!
     
+    
+    let locationManager = CLLocationManager()
+    var longitude : String = ""
+    var latitude : String = ""
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view.
+        
+        locationManager.delegate = self
+        locationManager.desiredAccuracy = kCLLocationAccuracyBest
+        locationManager.requestWhenInUseAuthorization()
+        locationManager.startUpdatingLocation()
     }
 
     @IBAction func loginButton(_ sender: Any) {
@@ -54,6 +63,7 @@ class ViewController: UIViewController {
                     //Allow user to login and send to NavView
                     //UIHostingController(rootView: NavView())
                     
+                    
                     //exit()
                 }
             }
@@ -61,10 +71,20 @@ class ViewController: UIViewController {
         
     }
     
-    //@IBSegueAction func addSwiftUIView(_ coder: NSCoder) -> UIViewController? {
-      //  return UIHostingController(coder:coder, rootView: NavView())
-    //}
+    @IBSegueAction func addSwiftUIView(_ coder: NSCoder) -> UIViewController? {
+      return UIHostingController(coder:coder, rootView: NavView())
+    }
     
+    func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
+        let location = locations[locations.count - 1]
+        
+        if location.horizontalAccuracy > 0 {
+            locationManager.stopUpdatingLocation()
+            
+            longitude = String(location.coordinate.longitude)
+            latitude = String(location.coordinate.latitude)
+        }
+    }
     //Function to check if the input from the user in the emailTextField is in a email format.
     //https://stackoverflow.com/questions/25471114/how-to-validate-an-e-mail-address-in-swift
     func isValidEmail(emailStr:String) -> Bool {

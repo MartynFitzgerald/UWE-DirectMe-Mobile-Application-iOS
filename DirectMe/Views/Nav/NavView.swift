@@ -9,6 +9,7 @@
 
 import SwiftUI
 
+/*
 struct SelectionModel{
     var selectionBackground: Int = 2 {
         didSet {
@@ -29,30 +30,31 @@ struct SelectionModel{
         }
     }
 }
+ */
 
 struct NavView: View {
     
     init () {
-        UITabBar.appearance().shadowImage = UIImage()
-        UITabBar.appearance().backgroundImage = UIImage()
-        UITabBar.appearance().backgroundColor = UIColor(red: 15/255, green: 157/255, blue: 88/255, alpha: 1)
-        UITabBar.appearance().unselectedItemTintColor = UIColor(red: 204/255, green: 204/255, blue: 204/255, alpha: 1)
-        UITabBar.appearance().isTranslucent = true
-        
         //Set defualt background color as green color
         UINavigationBar.appearance().shadowImage = UIImage()
+        UINavigationBar.appearance().backgroundImage = (UIImage(), for: UIBarMetrics.default)
+        UINavigationBar.appearance().isTranslucent = true
         UINavigationBar.appearance().backgroundColor = UIColor(red: 15/255, green: 157/255, blue: 88/255, alpha: 1)
         UINavigationBar.appearance().barTintColor = UIColor(red: 15/255, green: 157/255, blue: 88/255, alpha: 1)
         UINavigationBar.appearance().titleTextAttributes = [.foregroundColor: UIColor.white]
         UINavigationBar.appearance().largeTitleTextAttributes = [.foregroundColor: UIColor.white]
-        UINavigationBar.appearance().isTranslucent = true
-        //UINavigationBar.appearance().edgesIgnoringSafeArea(.all)
+        
+        UITabBar.appearance().shadowImage = UIImage()
+        UITabBar.appearance().backgroundImage = UIImage()
+        UITabBar.appearance().isTranslucent = true
+        UITabBar.appearance().backgroundColor = UIColor(red: 15/255, green: 157/255, blue: 88/255, alpha: 1)
+        UITabBar.appearance().unselectedItemTintColor = UIColor(red: 204/255, green: 204/255, blue: 204/255, alpha: 1)
     }
     
-    @State private var selection = SelectionModel()
+    @State private var selection = 2
     
     var body: some View {
-        TabView(selection: $selection.selectionBackground){
+        TabView(selection: $selection){
             InformationView()
                 .font(.title)
                 .tabItem {

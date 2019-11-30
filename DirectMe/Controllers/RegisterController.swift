@@ -9,6 +9,7 @@
 import UIKit
 import SwiftUI
 import CoreLocation
+import MessageUI
 
 class RegisterController: UIViewController {
     @IBOutlet weak var firstNameTextField: UITextField!
@@ -24,6 +25,7 @@ class RegisterController: UIViewController {
     }
     
     @IBAction func registerUser(_ sender: Any) {
+        self.errorTextView.text = ""
         let firstName:String? = (firstNameTextField.text ?? "").lowercased().capitalized
         let lastName:String? = (lastNameTextField.text ?? "").lowercased().capitalized
         let email:String? = (emailTextField.text ?? "").lowercased().capitalized
@@ -65,49 +67,58 @@ class RegisterController: UIViewController {
             }
             else
             {
-                //Clear error text view
-                self.errorTextView.text = ""
-                //Create a new User object with the data inputted
-                let newUser = User(id: 2, firstName: firstName!, lastName: lastName!, email: email!, password: password!, image: "Unknown")
-                //Amend the userData stored from the json file
-                userData.append(newUser)
-                //print (userData)
-                do {
-                    let encoder = JSONEncoder()
-                    encoder.outputFormatting = .prettyPrinted
-                    let data = try! encoder.encode(userData)
-                    
-                    let filename = getDocumentsDirectory().appendingPathComponent("../userData.txt")
-
-                    try data.write(to: filename)
-                    
-                } catch {
-                    print(error)
-                }
-                /*
-                do {
-                    let encoder = JSONEncoder()
-                    encoder.outputFormatting = .prettyPrinted
-                    let data = try! encoder.encode(userData)
-
-                    if let documentDirectoryUrl = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first {
-                        let fileUrl = documentDirectoryUrl.appendingPathComponent("userData.json")
-                        try data.write(to: fileUrl)
+                for data in userData
+                {
+                    if data.email == email
+                    {
+                        self.errorTextView.text = "This email has already got an account with DirectMe."
+                        break;
                     }
-                } catch {
-                    print(error)
-                }*/
+                }
+                
+                //check if there was no error
+                if self.errorTextView.text == ""
+                {
+                    //Create a new User object with the data inputted
+                    let newUser = User(id: 2, firstName: firstName!, lastName: lastName!, email: email!, password: password!, image: "Unknown")
+                    //Amend the userData stored from the json file
+                    userData.append(newUser)
+                    //print (userData)
+                    do {
+                        let encoder = JSONEncoder()
+                        encoder.outputFormatting = .prettyPrinted
+                        let data = try! encoder.encode(userData)
+                        
+                        let location = getDocumentsDirectory().appendingPathComponent("../userData.txt")
+
+                        try data.write(to: location)
+                        
+                    } catch {
+                        print(error)
+                    }
+                    /*
+                    if MFMailComposeViewController.canSendMail() {
+                        let mail = MFMailComposeViewController()
+                        mail.mailComposeDelegate = self as? MFMailComposeViewControllerDelegate
+                        mail.setToRecipients([email!])
+                        mail.setMessageBody("<p>You're so awesome!</p>", isHTML: true)
+
+                        present(mail, animated: true)
+                    } else {
+                        // show failure alert
+                    }
+                    */
+                }
                 
             }
         }
-        //user validate
-        
-        //check if they are already registered
-        
-        //add registerations
         
         //email registersation
         
+    }
+    
+    func mailComposeController(_ controller: MFMailComposeViewController, didFinishWith result: MFMailComposeResult, error: Error?) {
+        controller.dismiss(animated: true)
     }
     func getDocumentsDirectory() -> URL {
         let paths = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)

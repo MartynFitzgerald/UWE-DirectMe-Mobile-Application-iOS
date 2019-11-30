@@ -49,6 +49,7 @@
                                 </state>
                                 <connections>
                                     <action selector="loginButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="nKm-JV-LhP"/>
+                                    <segue destination="lMs-Ng-Eqx" kind="show" id="vJS-SI-4Wx"/>
                                 </connections>
                             </button>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Email" textAlignment="center" clearsOnBeginEditing="YES" minimumFontSize="17" id="re4-8N-Zsk">
