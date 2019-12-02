@@ -97,6 +97,7 @@ struct NavView: View {
                 .tag(4)
         }
         .accentColor(.white)
+        .edgesIgnoringSafeArea(.top)
     }
 }
 

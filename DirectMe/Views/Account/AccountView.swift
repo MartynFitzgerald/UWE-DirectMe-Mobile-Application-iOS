@@ -46,7 +46,7 @@ struct AccountView: View {
                     .padding(10)
                     
                     HStack{
-                        Text("Notifications")
+                        Text("Account Information")
                             .font(.body)
                     }
                     .padding(10)

@@ -77,7 +77,7 @@ class LoginController: UIViewController, CLLocationManagerDelegate {
             }
             if userNotFound
             {
-                self.errorTextView.text = "The detais given are not connected with an account at DirectMe."
+                self.errorTextView.text = "The detais given are not a registered account at DirectMe. Please try again "
             }
         }
         
