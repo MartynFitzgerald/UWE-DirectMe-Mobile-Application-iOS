@@ -19,7 +19,7 @@
 		5A3C7BC6237E12D900782098 /* turtlerock.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 5A3C7BBB237E12D400782098 /* turtlerock.jpg */; };
 		5A565B77237B15D9008DB7EB /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A565B76237B15D9008DB7EB /* AppDelegate.swift */; };
 		5A565B79237B15D9008DB7EB /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A565B78237B15D9008DB7EB /* SceneDelegate.swift */; };
-		5A565B7B237B15D9008DB7EB /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A565B7A237B15D9008DB7EB /* ViewController.swift */; };
+		5A565B7B237B15D9008DB7EB /* LoginController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A565B7A237B15D9008DB7EB /* LoginController.swift */; };
 		5A565B80237B15DB008DB7EB /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5A565B7F237B15DB008DB7EB /* Assets.xcassets */; };
 		5A565B83237B15DB008DB7EB /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5A565B81237B15DB008DB7EB /* LaunchScreen.storyboard */; };
 		5A565B9B237B193C008DB7EB /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5A565B99237B193C008DB7EB /* Main.storyboard */; };
@@ -32,6 +32,17 @@
 		5AB47C9F239089BD00C469E7 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AB47C9E239089BD00C469E7 /* User.swift */; };
 		5AB47CA423914C5E00C469E7 /* RegisterController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AB47CA323914C5D00C469E7 /* RegisterController.swift */; };
 		5AB47CA62391DBB900C469E7 /* userData.json in Resources */ = {isa = PBXBuildFile; fileRef = 5AB47CA52391DBB900C469E7 /* userData.json */; };
+		5AB47CA923933B4F00C469E7 /* MainController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AB47CA823933B4F00C469E7 /* MainController.swift */; };
+		5AB47CB423941DB600C469E7 /* man-1.png in Resources */ = {isa = PBXBuildFile; fileRef = 5AB47CAB23941DB600C469E7 /* man-1.png */; };
+		5AB47CB523941DB600C469E7 /* man-2.png in Resources */ = {isa = PBXBuildFile; fileRef = 5AB47CAC23941DB600C469E7 /* man-2.png */; };
+		5AB47CB623941DB600C469E7 /* man-3.png in Resources */ = {isa = PBXBuildFile; fileRef = 5AB47CAD23941DB600C469E7 /* man-3.png */; };
+		5AB47CB723941DB600C469E7 /* man-4.png in Resources */ = {isa = PBXBuildFile; fileRef = 5AB47CAE23941DB600C469E7 /* man-4.png */; };
+		5AB47CB823941DB600C469E7 /* girl.png in Resources */ = {isa = PBXBuildFile; fileRef = 5AB47CAF23941DB600C469E7 /* girl.png */; };
+		5AB47CB923941DB600C469E7 /* boy-1.png in Resources */ = {isa = PBXBuildFile; fileRef = 5AB47CB023941DB600C469E7 /* boy-1.png */; };
+		5AB47CBA23941DB600C469E7 /* man.png in Resources */ = {isa = PBXBuildFile; fileRef = 5AB47CB123941DB600C469E7 /* man.png */; };
+		5AB47CBB23941DB600C469E7 /* boy.png in Resources */ = {isa = PBXBuildFile; fileRef = 5AB47CB223941DB600C469E7 /* boy.png */; };
+		5AB47CBC23941DB600C469E7 /* girl-1.png in Resources */ = {isa = PBXBuildFile; fileRef = 5AB47CB323941DB600C469E7 /* girl-1.png */; };
+		5AB47CBE23947FEF00C469E7 /* AccountProfilePicture.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AB47CBD23947FEF00C469E7 /* AccountProfilePicture.swift */; };
 		9017FA41E4EBF872BAE6511F /* libPods-DirectMe.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 342B6A73BF7BB1D5C9627502 /* libPods-DirectMe.a */; };
 /* End PBXBuildFile section */
 
@@ -50,7 +61,7 @@
 		5A565B73237B15D9008DB7EB /* DirectMe.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DirectMe.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		5A565B76237B15D9008DB7EB /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		5A565B78237B15D9008DB7EB /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		5A565B7A237B15D9008DB7EB /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		5A565B7A237B15D9008DB7EB /* LoginController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginController.swift; sourceTree = "<group>"; };
 		5A565B7F237B15DB008DB7EB /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		5A565B82237B15DB008DB7EB /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		5A565B84237B15DB008DB7EB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -64,6 +75,17 @@
 		5AB47C9E239089BD00C469E7 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		5AB47CA323914C5D00C469E7 /* RegisterController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterController.swift; sourceTree = "<group>"; };
 		5AB47CA52391DBB900C469E7 /* userData.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = userData.json; sourceTree = "<group>"; };
+		5AB47CA823933B4F00C469E7 /* MainController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainController.swift; sourceTree = "<group>"; };
+		5AB47CAB23941DB600C469E7 /* man-1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "man-1.png"; sourceTree = "<group>"; };
+		5AB47CAC23941DB600C469E7 /* man-2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "man-2.png"; sourceTree = "<group>"; };
+		5AB47CAD23941DB600C469E7 /* man-3.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "man-3.png"; sourceTree = "<group>"; };
+		5AB47CAE23941DB600C469E7 /* man-4.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "man-4.png"; sourceTree = "<group>"; };
+		5AB47CAF23941DB600C469E7 /* girl.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = girl.png; sourceTree = "<group>"; };
+		5AB47CB023941DB600C469E7 /* boy-1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "boy-1.png"; sourceTree = "<group>"; };
+		5AB47CB123941DB600C469E7 /* man.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = man.png; sourceTree = "<group>"; };
+		5AB47CB223941DB600C469E7 /* boy.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = boy.png; sourceTree = "<group>"; };
+		5AB47CB323941DB600C469E7 /* girl-1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "girl-1.png"; sourceTree = "<group>"; };
+		5AB47CBD23947FEF00C469E7 /* AccountProfilePicture.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountProfilePicture.swift; sourceTree = "<group>"; };
 		62F45DCC8590A3F4F811D9F0 /* Pods-DirectMe.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DirectMe.release.xcconfig"; path = "Target Support Files/Pods-DirectMe/Pods-DirectMe.release.xcconfig"; sourceTree = "<group>"; };
 		A0834294D25913BB1F574E09 /* Pods-DirectMe.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DirectMe.debug.xcconfig"; path = "Target Support Files/Pods-DirectMe/Pods-DirectMe.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -83,6 +105,7 @@
 		5A36676E237DF05400C494D9 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				5AB47CAA23941DB600C469E7 /* Avatars Icons */,
 				5AB47CA52391DBB900C469E7 /* userData.json */,
 				5AB47C9C238D8EC600C469E7 /* Logo.png */,
 				5A3C7BBB237E12D400782098 /* turtlerock.jpg */,
@@ -103,14 +126,13 @@
 			path = History;
 			sourceTree = "<group>";
 		};
-		5A3C7BCF237F35FC00782098 /* Nav */ = {
+		5A3C7BCF237F35FC00782098 /* Map */ = {
 			isa = PBXGroup;
 			children = (
-				5A565B9F237C708E008DB7EB /* NavView.swift */,
 				5AB47C9823843E9100C469E7 /* AppleMapView.swift */,
 				5AB4069E237C9B4600091E3A /* MapView.swift */,
 			);
-			path = Nav;
+			path = Map;
 			sourceTree = "<group>";
 		};
 		5A565B6A237B15D9008DB7EB = {
@@ -150,8 +172,9 @@
 				5A565B76237B15D9008DB7EB /* AppDelegate.swift */,
 				5A565B78237B15D9008DB7EB /* SceneDelegate.swift */,
 				5A3C7B99237E111800782098 /* DataController.swift */,
-				5A565B7A237B15D9008DB7EB /* ViewController.swift */,
+				5A565B7A237B15D9008DB7EB /* LoginController.swift */,
 				5AB47CA323914C5D00C469E7 /* RegisterController.swift */,
+				5AB47CA823933B4F00C469E7 /* MainController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -162,8 +185,9 @@
 				5AB47C9523843A7700C469E7 /* Unknown */,
 				5AB47C922384094C00C469E7 /* Information */,
 				5AB47C912384092400C469E7 /* Account */,
-				5A3C7BCF237F35FC00782098 /* Nav */,
+				5A3C7BCF237F35FC00782098 /* Map */,
 				5A3C7BCE237E13E900782098 /* History */,
+				5A565B9F237C708E008DB7EB /* NavView.swift */,
 				5A565B99237B193C008DB7EB /* Main.storyboard */,
 				5A565B81237B15DB008DB7EB /* LaunchScreen.storyboard */,
 			);
@@ -183,6 +207,7 @@
 			isa = PBXGroup;
 			children = (
 				5A366768237DEBF600C494D9 /* AccountView.swift */,
+				5AB47CBD23947FEF00C469E7 /* AccountProfilePicture.swift */,
 			);
 			path = Account;
 			sourceTree = "<group>";
@@ -201,6 +226,22 @@
 				5AB47C9623843AAA00C469E7 /* UnknownView.swift */,
 			);
 			path = Unknown;
+			sourceTree = "<group>";
+		};
+		5AB47CAA23941DB600C469E7 /* Avatars Icons */ = {
+			isa = PBXGroup;
+			children = (
+				5AB47CAB23941DB600C469E7 /* man-1.png */,
+				5AB47CAC23941DB600C469E7 /* man-2.png */,
+				5AB47CAD23941DB600C469E7 /* man-3.png */,
+				5AB47CAE23941DB600C469E7 /* man-4.png */,
+				5AB47CAF23941DB600C469E7 /* girl.png */,
+				5AB47CB023941DB600C469E7 /* boy-1.png */,
+				5AB47CB123941DB600C469E7 /* man.png */,
+				5AB47CB223941DB600C469E7 /* boy.png */,
+				5AB47CB323941DB600C469E7 /* girl-1.png */,
+			);
+			path = "Avatars Icons";
 			sourceTree = "<group>";
 		};
 		9157D7059995F9B5546D4537 /* Frameworks */ = {
@@ -279,12 +320,21 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5AB47CB523941DB600C469E7 /* man-2.png in Resources */,
 				5A366770237DF09400C494D9 /* historyData.json in Resources */,
+				5AB47CB623941DB600C469E7 /* man-3.png in Resources */,
+				5AB47CB923941DB600C469E7 /* boy-1.png in Resources */,
 				5A3C7BC6237E12D900782098 /* turtlerock.jpg in Resources */,
+				5AB47CB723941DB600C469E7 /* man-4.png in Resources */,
+				5AB47CBB23941DB600C469E7 /* boy.png in Resources */,
+				5AB47CBA23941DB600C469E7 /* man.png in Resources */,
+				5AB47CB823941DB600C469E7 /* girl.png in Resources */,
+				5AB47CBC23941DB600C469E7 /* girl-1.png in Resources */,
 				5A565B83237B15DB008DB7EB /* LaunchScreen.storyboard in Resources */,
 				5AB47C9D238D8EC700C469E7 /* Logo.png in Resources */,
 				5A565B80237B15DB008DB7EB /* Assets.xcassets in Resources */,
 				5A565B9B237B193C008DB7EB /* Main.storyboard in Resources */,
+				5AB47CB423941DB600C469E7 /* man-1.png in Resources */,
 				5AB47CA62391DBB900C469E7 /* userData.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -322,16 +372,18 @@
 			buildActionMask = 2147483647;
 			files = (
 				5A36676D237DEF9900C494D9 /* History.swift in Sources */,
-				5A565B7B237B15D9008DB7EB /* ViewController.swift in Sources */,
+				5A565B7B237B15D9008DB7EB /* LoginController.swift in Sources */,
 				5A366767237DEAFC00C494D9 /* HistoryView.swift in Sources */,
 				5A565B77237B15D9008DB7EB /* AppDelegate.swift in Sources */,
 				5AB4069F237C9B4600091E3A /* MapView.swift in Sources */,
 				5A366769237DEBF600C494D9 /* AccountView.swift in Sources */,
+				5AB47CA923933B4F00C469E7 /* MainController.swift in Sources */,
 				5A36676B237DEE1600C494D9 /* HistoryRow.swift in Sources */,
 				5AB47C9F239089BD00C469E7 /* User.swift in Sources */,
 				5AB47CA423914C5E00C469E7 /* RegisterController.swift in Sources */,
 				5AB47C942384099300C469E7 /* InformationView.swift in Sources */,
 				5AB47C9923843E9100C469E7 /* AppleMapView.swift in Sources */,
+				5AB47CBE23947FEF00C469E7 /* AccountProfilePicture.swift in Sources */,
 				5A565BA0237C708E008DB7EB /* NavView.swift in Sources */,
 				5A3C7B9A237E111800782098 /* DataController.swift in Sources */,
 				5AB47C9723843AAA00C469E7 /* UnknownView.swift in Sources */,

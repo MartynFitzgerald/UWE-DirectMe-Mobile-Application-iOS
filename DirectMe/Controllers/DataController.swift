@@ -43,15 +43,15 @@ final class ImageStore {
     
     static var shared = ImageStore()
     
-    func image(name: String) -> Image {
-        let index = _guaranteeImage(name: name)
+    func image(name: String, imageExtension: String) -> Image {
+        let index = _guaranteeImage(name: name, imageExtension: imageExtension)
         
         return Image(images.values[index], scale: CGFloat(ImageStore.scale), label: Text(verbatim: name))
     }
 
-    static func loadImage(name: String) -> CGImage {
+    static func loadImage(name: String, imageExtension: String) -> CGImage {
         guard
-            let url = Bundle.main.url(forResource: name, withExtension: "jpg"),
+            let url = Bundle.main.url(forResource: name, withExtension: imageExtension),
             let imageSource = CGImageSourceCreateWithURL(url as NSURL, nil),
             let image = CGImageSourceCreateImageAtIndex(imageSource, 0, nil)
         else {
@@ -60,10 +60,10 @@ final class ImageStore {
         return image
     }
     
-    fileprivate func _guaranteeImage(name: String) -> _ImageDictionary.Index {
+    fileprivate func _guaranteeImage(name: String, imageExtension: String) -> _ImageDictionary.Index {
         if let index = images.index(forKey: name) { return index }
         
-        images[name] = ImageStore.loadImage(name: name)
+        images[name] = ImageStore.loadImage(name: name, imageExtension: imageExtension)
         return images.index(forKey: name)!
     }
 }

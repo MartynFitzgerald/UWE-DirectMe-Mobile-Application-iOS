@@ -37,7 +37,7 @@ struct NavView: View {
     init () {
         //Set defualt background color as green color
         UINavigationBar.appearance().shadowImage = UIImage()
-        UINavigationBar.appearance().backgroundImage = (UIImage(), for: UIBarMetrics.default)
+        //UINavigationBar.appearance().backgroundImage = (UIImage(), for: UIBarMetrics.default)
         UINavigationBar.appearance().isTranslucent = true
         UINavigationBar.appearance().backgroundColor = UIColor(red: 15/255, green: 157/255, blue: 88/255, alpha: 1)
         UINavigationBar.appearance().barTintColor = UIColor(red: 15/255, green: 157/255, blue: 88/255, alpha: 1)

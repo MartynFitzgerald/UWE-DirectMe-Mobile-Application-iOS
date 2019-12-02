@@ -1,5 +1,5 @@
 //
-//  ViewController.swift
+//  LoginController.swift
 //  DirectMe
 //
 //  Created by martyn on 12/11/2019.
@@ -10,7 +10,7 @@ import UIKit
 import SwiftUI
 import CoreLocation
 
-class ViewController: UIViewController, CLLocationManagerDelegate {
+class LoginController: UIViewController, CLLocationManagerDelegate {
 
     @IBOutlet weak var emailTextField: UITextField!
     @IBOutlet weak var passwordTextField: UITextField!
@@ -57,8 +57,14 @@ class ViewController: UIViewController, CLLocationManagerDelegate {
             {
                 if user.email == email && user.password == password
                 {
-                    //Store this into an array
+                    //Store this into userdefaults
+                    UserDefaults.standard.set(user.firstName, forKey: "firstName")
+                    UserDefaults.standard.set(user.lastName, forKey: "lastName")
+                    UserDefaults.standard.set(user.email, forKey: "email")
+                    
                     print(user.id, " - ", user.firstName, " - ", user.lastName, " - ", user.email, " - ", user.password)
+                    
+                    print(UserDefaults.standard.string(forKey: "firstName")!, " - ", UserDefaults.standard.string(forKey: "email")!)
 
                     //Allow user to login and send to NavView
                     //UIHostingController(rootView: NavView())
@@ -69,10 +75,6 @@ class ViewController: UIViewController, CLLocationManagerDelegate {
             }
         }
         
-    }
-    
-    @IBSegueAction func addSwiftUIView(_ coder: NSCoder) -> UIViewController? {
-      return UIHostingController(coder:coder, rootView: NavView())
     }
     
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {

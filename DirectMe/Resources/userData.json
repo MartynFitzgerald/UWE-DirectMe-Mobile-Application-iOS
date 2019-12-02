@@ -5,7 +5,7 @@
         "lastName": "Fitzgerald",
         "email": "martyn2.fitzgerald@live.uwe.ac.uk",
         "password": "!Password123",
-        "profilePicture": "male1"
+        "profilePicture": ""
     },
     {
         "id": 1,
@@ -13,6 +13,6 @@
         "lastName": "Goddard",
         "email": "paul.Goddard@live.uwe.ac.uk",
         "password": "!Password123",
-        "profilePicture": "male2"
+        "profilePicture": ""
     }
 ]

@@ -8,17 +8,24 @@
 
 import SwiftUI
 
+
 struct AccountView: View {
+    let firstName: String = UserDefaults.standard.string(forKey: "firstName") ?? "Unknown"
+    let lastName: String = UserDefaults.standard.string(forKey: "lastName") ?? "Unknown"
+    let email: String = UserDefaults.standard.string(forKey: "email") ?? "Unknown"
+    
+    @State private var sliderValue: Bool = false
+    
     var body: some View {
         NavigationView {
             VStack {
                 VStack(alignment: .center) {
-                    //CircleImage(image: Image("turtlerock.jpg"))
-                      //.offset(y: -130)
-                      //.padding(.bottom, -130)
-                    Text("Martyn Fitzgerald")
+                    AccountProfilePicture(image: ImageStore.shared.image(name: "boy", imageExtension: "png"))
+                      .offset(y: -30)
+                      .padding(.bottom, -30)
+                    Text("\(firstName) \(lastName)")
                         .font(.title)
-                    Text("Email")
+                    Text("\(email)")
                         .font(.subheadline)
                     Text("Location")
                         .font(.subheadline)
@@ -27,6 +34,35 @@ struct AccountView: View {
                 .background(Color.blue)
                 .foregroundColor(Color.white)
 
+                VStack {
+                    HStack{
+                        Toggle(isOn: $sliderValue)
+                        {
+                            Text("Dark Mode")
+                                .font(.body)
+                        }
+                    }
+                    .padding(10)
+                    
+                    HStack{
+                        Text("Notifications")
+                            .font(.body)
+                    }
+                    .padding(10)
+                    
+                    HStack{
+                        Text("Notifications")
+                            .font(.body)
+                    }
+                    .padding(10)
+                    
+                    HStack{
+                        Text("Notifications")
+                            .font(.body)
+                        }
+                    .padding(10)
+                }
+                
                 Spacer()
             }
             .navigationBarTitle(Text("Account"), displayMode: .inline)
