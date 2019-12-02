@@ -49,7 +49,6 @@
                                 </state>
                                 <connections>
                                     <action selector="loginButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="nKm-JV-LhP"/>
-                                    <segue destination="lMs-Ng-Eqx" kind="show" id="vJS-SI-4Wx"/>
                                 </connections>
                             </button>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Email" textAlignment="center" clearsOnBeginEditing="YES" minimumFontSize="17" id="re4-8N-Zsk">
@@ -97,6 +96,7 @@
                         <outlet property="emailTextField" destination="re4-8N-Zsk" id="Uj4-jo-mij"/>
                         <outlet property="errorTextView" destination="pcz-tt-I8V" id="78S-Cu-w4N"/>
                         <outlet property="passwordTextField" destination="F82-hT-POX" id="nJ6-H4-s1G"/>
+                        <outlet property="theContainer" destination="8bC-Xf-vdC" id="Bbm-2d-ogB"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>

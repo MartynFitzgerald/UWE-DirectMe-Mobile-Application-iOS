@@ -10,9 +10,14 @@ import SwiftUI
 import Foundation
 
 class MainController: UIViewController {
-        @IBSegueAction func addSwiftUIView(_ coder: NSCoder) -> UIViewController? {
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        print("hELLO")
+    }
+        /*@IBSegueAction func addSwiftUIView(_ coder: NSCoder) -> UIViewController? {
 
             //print(UserDefaults.standard.string(forKey: "firstName")!, " - ", UserDefaults.standard.string(forKey: "email")!)
             return UIHostingController(coder:coder, rootView: NavView())
-        }
+        }*/
 }

@@ -36,6 +36,6 @@ struct User: Hashable, Codable, Identifiable {
 
 extension User {
     var image: Image {
-        ImageStore.shared.image(name: profilePicture)
+        ImageStore.shared.image(name: profilePicture, imageExtension: "png")
     }
 }

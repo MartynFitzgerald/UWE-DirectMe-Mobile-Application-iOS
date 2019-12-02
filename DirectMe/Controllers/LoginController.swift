@@ -11,12 +11,12 @@ import SwiftUI
 import CoreLocation
 
 class LoginController: UIViewController, CLLocationManagerDelegate {
-
+    @IBOutlet weak var theContainer: UIView!
     @IBOutlet weak var emailTextField: UITextField!
     @IBOutlet weak var passwordTextField: UITextField!
     @IBOutlet weak var errorTextView: UITextView!
     
-    
+    var window: UIWindow?
     let locationManager = CLLocationManager()
     var longitude : String = ""
     var latitude : String = ""
@@ -31,7 +31,7 @@ class LoginController: UIViewController, CLLocationManagerDelegate {
     }
 
     @IBAction func loginButton(_ sender: Any) {
-        let email:String? = (emailTextField.text ?? "").lowercased().capitalized
+        let email:String? = (emailTextField.text ?? "").lowercased()
         let password:String? = passwordTextField.text ?? ""
         
         let isEmailValid = isValidEmail(emailStr: email!);
@@ -52,11 +52,14 @@ class LoginController: UIViewController, CLLocationManagerDelegate {
         }
         else
         {
-            self.errorTextView.text = ""
+            //self.errorTextView.text = ""
             for user in userData
             {
+                self.errorTextView.text =  " \(user.email)  \(email!) - \(user.password) \(password!)"
+                
                 if user.email == email && user.password == password
                 {
+                    self.errorTextView.text = "Logged In"
                     //Store this into userdefaults
                     UserDefaults.standard.set(user.firstName, forKey: "firstName")
                     UserDefaults.standard.set(user.lastName, forKey: "lastName")
@@ -64,13 +67,13 @@ class LoginController: UIViewController, CLLocationManagerDelegate {
                     
                     print(user.id, " - ", user.firstName, " - ", user.lastName, " - ", user.email, " - ", user.password)
                     
-                    print(UserDefaults.standard.string(forKey: "firstName")!, " - ", UserDefaults.standard.string(forKey: "email")!)
-
+                    let viewCtrl = UIHostingController(rootView: NavView())
+                    addChild(viewCtrl)
+                    viewCtrl.view.frame = theContainer.bounds
+                    theContainer.addSubview(viewCtrl.view)
+                    viewCtrl.didMove(toParent: self)
                     //Allow user to login and send to NavView
                     //UIHostingController(rootView: NavView())
-                    
-                    
-                    //exit()
                 }
             }
         }

@@ -33,7 +33,7 @@ struct History: Hashable, Codable, Identifiable {
 
 extension History {
     var image: Image {
-        ImageStore.shared.image(name: imageName)
+        ImageStore.shared.image(name: imageName, imageExtension: "jpg")
     }
 }
 
