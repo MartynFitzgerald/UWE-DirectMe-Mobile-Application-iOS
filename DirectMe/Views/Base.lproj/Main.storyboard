@@ -7,31 +7,6 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Main Controller-->
-        <scene sceneID="fTf-Jp-uHA">
-            <objects>
-                <viewController modalPresentationStyle="fullScreen" id="lMs-Ng-Eqx" customClass="MainController" customModule="DirectMe" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="k4T-gy-sax">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <containerView opaque="NO" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="OjS-hv-VHT">
-                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
-                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                                <connections>
-                                    <segue destination="nQG-7O-ETn" kind="embed" destinationCreationSelector="addSwiftUIView:" id="oLw-zQ-BdQ"/>
-                                </connections>
-                            </containerView>
-                        </subviews>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
-                        <viewLayoutGuide key="safeArea" id="hou-zf-XNN"/>
-                    </view>
-                    <navigationItem key="navigationItem" id="c0F-p9-PoL"/>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="9cW-UM-tvQ" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="903.20000000000005" y="138.98050974512745"/>
-        </scene>
         <!--Login Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
@@ -102,14 +77,6 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="132" y="138.98050974512745"/>
-        </scene>
-        <!--Hosting Controller-->
-        <scene sceneID="hov-O4-KdJ">
-            <objects>
-                <hostingController id="nQG-7O-ETn" sceneMemberID="viewController"/>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="Bb1-P5-sjR" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="1697" y="139"/>
         </scene>
         <!--Register Controller-->
         <scene sceneID="poN-rg-eqc">

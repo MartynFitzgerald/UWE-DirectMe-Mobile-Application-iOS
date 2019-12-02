@@ -15,7 +15,7 @@ struct User: Hashable, Codable, Identifiable {
     var lastName: String
     var email:  String
     var password: String
-    fileprivate var profilePicture: String
+    var profilePicture: String
     /*
     fileprivate var coordinates: Coordinates
     var locationCoordinate: CLLocationCoordinate2D {
@@ -24,18 +24,12 @@ struct User: Hashable, Codable, Identifiable {
             longitude: coordinates.longitude)
     }*/
     
-    init(id: Int, firstName: String, lastName: String, email: String, password: String, image: String) {
+    init(id: Int, firstName: String, lastName: String, email: String, password: String, profilePicture: String) {
         self.id = id
         self.firstName = firstName
         self.lastName = lastName
         self.email = email
         self.password = password
-        self.profilePicture = image
-    }
-}
-
-extension User {
-    var image: Image {
-        ImageStore.shared.image(name: profilePicture, imageExtension: "png")
+        self.profilePicture = profilePicture
     }
 }

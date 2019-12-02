@@ -13,6 +13,7 @@ struct AccountView: View {
     let firstName: String = UserDefaults.standard.string(forKey: "firstName") ?? "Unknown"
     let lastName: String = UserDefaults.standard.string(forKey: "lastName") ?? "Unknown"
     let email: String = UserDefaults.standard.string(forKey: "email") ?? "Unknown"
+    let profilePicture: String = UserDefaults.standard.string(forKey: "profilePicture") ?? "Unknown"
     
     @State private var sliderValue: Bool = false
     
@@ -20,7 +21,7 @@ struct AccountView: View {
         NavigationView {
             VStack {
                 VStack(alignment: .center) {
-                    AccountProfilePicture(image: ImageStore.shared.image(name: "boy", imageExtension: "png"))
+                    AccountProfilePicture(image: ImageStore.shared.image(name: profilePicture, imageExtension: "png"))
                       .offset(y: -30)
                       .padding(.bottom, -30)
                     Text("\(firstName) \(lastName)")

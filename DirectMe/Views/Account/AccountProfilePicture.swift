@@ -25,6 +25,6 @@ struct AccountProfilePicture: View {
 
 struct AccountProfilePicture_Previews: PreviewProvider {
     static var previews: some View {
-        AccountProfilePicture(image: ImageStore.shared.image(name: "boy", imageExtension: "png"))
+        AccountProfilePicture(image: ImageStore.shared.image(name: "male1", imageExtension: "png"))
     }
 }

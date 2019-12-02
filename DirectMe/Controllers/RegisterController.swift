@@ -80,7 +80,7 @@ class RegisterController: UIViewController {
                 if self.errorTextView.text == ""
                 {
                     //Create a new User object with the data inputted
-                    let newUser = User(id: 2, firstName: firstName!, lastName: lastName!, email: email!, password: password!, image: "Unknown")
+                    let newUser = User(id: 2, firstName: firstName!, lastName: lastName!, email: email!, password: password!, profilePicture: "boy")
                     //Amend the userData stored from the json file
                     userData.append(newUser)
                     //print (userData)

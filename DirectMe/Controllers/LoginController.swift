@@ -16,7 +16,6 @@ class LoginController: UIViewController, CLLocationManagerDelegate {
     @IBOutlet weak var passwordTextField: UITextField!
     @IBOutlet weak var errorTextView: UITextView!
     
-    var window: UIWindow?
     let locationManager = CLLocationManager()
     var longitude : String = ""
     var latitude : String = ""
@@ -37,6 +36,8 @@ class LoginController: UIViewController, CLLocationManagerDelegate {
         let isEmailValid = isValidEmail(emailStr: email!);
         let isPasswordValid = isValidPassword(passwordStr: password!);
         
+        self.errorTextView.text = ""
+        
         //Validate email and password
         if isEmailValid == false && isPasswordValid == false
         {
@@ -52,29 +53,31 @@ class LoginController: UIViewController, CLLocationManagerDelegate {
         }
         else
         {
-            //self.errorTextView.text = ""
+            var userNotFound: Bool = true
             for user in userData
             {
-                self.errorTextView.text =  " \(user.email)  \(email!) - \(user.password) \(password!)"
-                
+                //Check if the user exists within the database of users.
                 if user.email == email && user.password == password
                 {
-                    self.errorTextView.text = "Logged In"
+                    userNotFound = false
                     //Store this into userdefaults
                     UserDefaults.standard.set(user.firstName, forKey: "firstName")
                     UserDefaults.standard.set(user.lastName, forKey: "lastName")
                     UserDefaults.standard.set(user.email, forKey: "email")
+                    UserDefaults.standard.set(user.profilePicture, forKey: "profilePicture")
                     
-                    print(user.id, " - ", user.firstName, " - ", user.lastName, " - ", user.email, " - ", user.password)
-                    
+                    //Create a new UIHostingController with the view as the SwiftUI NavView
+                    //https://stackoverflow.com/questions/56433826/include-swiftui-views-in-existing-uikit-application
                     let viewCtrl = UIHostingController(rootView: NavView())
                     addChild(viewCtrl)
                     viewCtrl.view.frame = theContainer.bounds
                     theContainer.addSubview(viewCtrl.view)
                     viewCtrl.didMove(toParent: self)
-                    //Allow user to login and send to NavView
-                    //UIHostingController(rootView: NavView())
                 }
+            }
+            if userNotFound
+            {
+                self.errorTextView.text = "The detais given are not connected with an account at DirectMe."
             }
         }
         

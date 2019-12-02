@@ -56,18 +56,14 @@ struct NavView: View {
     var body: some View {
         TabView(selection: $selection){
             InformationView()
-                .font(.title)
                 .tabItem {
                     VStack {
                         Image(systemName: "info.circle.fill")
-                            //Not working yet
-                        .animation(.interpolatingSpring(mass: 0.7, stiffness: 200, damping: 10, initialVelocity: 4))
                         Text("Info")
                     }
                 }
                 .tag(0)
             UnknownView()
-                .font(.title)
                 .tabItem {
                     VStack {
                         Image(systemName: "questionmark.circle")
@@ -76,7 +72,6 @@ struct NavView: View {
                 }
                 .tag(1)
             MapView()
-                .font(.title)
                 .tabItem {
                     VStack {
                         Image(systemName: "map")
@@ -85,7 +80,6 @@ struct NavView: View {
                 }
                 .tag(2)
             HistoryView()
-                .font(.title)
                 .tabItem {
                     VStack {
                         Image(systemName: "clock")
@@ -94,7 +88,6 @@ struct NavView: View {
                 }
                 .tag(3)
             AccountView()
-                .font(.title)
                 .tabItem {
                     VStack {
                         Image(systemName: "person.crop.circle.fill")
