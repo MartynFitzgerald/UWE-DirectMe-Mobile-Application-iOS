@@ -27,7 +27,6 @@
 		5AB4069F237C9B4600091E3A /* MapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AB4069E237C9B4600091E3A /* MapView.swift */; };
 		5AB47C942384099300C469E7 /* InformationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AB47C932384099300C469E7 /* InformationView.swift */; };
 		5AB47C9723843AAA00C469E7 /* UnknownView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AB47C9623843AAA00C469E7 /* UnknownView.swift */; };
-		5AB47C9923843E9100C469E7 /* AppleMapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AB47C9823843E9100C469E7 /* AppleMapView.swift */; };
 		5AB47C9D238D8EC700C469E7 /* Logo.png in Resources */ = {isa = PBXBuildFile; fileRef = 5AB47C9C238D8EC600C469E7 /* Logo.png */; };
 		5AB47C9F239089BD00C469E7 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AB47C9E239089BD00C469E7 /* User.swift */; };
 		5AB47CA423914C5E00C469E7 /* RegisterController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AB47CA323914C5D00C469E7 /* RegisterController.swift */; };
@@ -69,7 +68,6 @@
 		5AB4069E237C9B4600091E3A /* MapView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapView.swift; sourceTree = "<group>"; };
 		5AB47C932384099300C469E7 /* InformationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InformationView.swift; sourceTree = "<group>"; };
 		5AB47C9623843AAA00C469E7 /* UnknownView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UnknownView.swift; sourceTree = "<group>"; };
-		5AB47C9823843E9100C469E7 /* AppleMapView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppleMapView.swift; sourceTree = "<group>"; };
 		5AB47C9C238D8EC600C469E7 /* Logo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Logo.png; sourceTree = "<group>"; };
 		5AB47C9E239089BD00C469E7 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		5AB47CA323914C5D00C469E7 /* RegisterController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterController.swift; sourceTree = "<group>"; };
@@ -127,7 +125,6 @@
 		5A3C7BCF237F35FC00782098 /* Map */ = {
 			isa = PBXGroup;
 			children = (
-				5AB47C9823843E9100C469E7 /* AppleMapView.swift */,
 				5AB4069E237C9B4600091E3A /* MapView.swift */,
 			);
 			path = Map;
@@ -378,7 +375,6 @@
 				5AB47C9F239089BD00C469E7 /* User.swift in Sources */,
 				5AB47CA423914C5E00C469E7 /* RegisterController.swift in Sources */,
 				5AB47C942384099300C469E7 /* InformationView.swift in Sources */,
-				5AB47C9923843E9100C469E7 /* AppleMapView.swift in Sources */,
 				5AB47CBE23947FEF00C469E7 /* AccountProfilePicture.swift in Sources */,
 				5A565BA0237C708E008DB7EB /* NavView.swift in Sources */,
 				5A3C7B9A237E111800782098 /* DataController.swift in Sources */,
