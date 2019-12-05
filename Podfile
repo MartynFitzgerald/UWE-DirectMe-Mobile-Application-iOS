@@ -1,2 +1,0 @@
-target 'DirectMe' do
-end

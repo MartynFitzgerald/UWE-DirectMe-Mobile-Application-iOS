@@ -1,6 +1,0 @@
-module Pods_DirectMe {
-  umbrella header "Pods-DirectMe-umbrella.h"
-
-  export *
-  module * { export * }
-}
