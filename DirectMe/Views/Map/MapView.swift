@@ -23,8 +23,7 @@ struct MapView: View {
                     .background(Color.white)
                     .foregroundColor(.black)
                     .padding(20)
-                    .modifier(ClearButton(text: $location))
-                    .modifier(SubmitButton(text: $location, locationManager: $locationManager))
+                    .modifier(textFieldButton(text: $location, locationManager: $locationManager))
                     .offset(y: -250)
                 .navigationBarTitle(Text("Map"), displayMode: .inline)
                 .navigationBarItems(leading:
@@ -43,15 +42,17 @@ struct MapView: View {
         }
     }
 }
-struct ClearButton: ViewModifier
+struct textFieldButton: ViewModifier
 {
     @Binding var text: String
+    @Binding var locationManager : CLLocationManager
 
     public func body(content: Content) -> some View
     {
         ZStack(alignment: .trailing)
         {
             content
+            HStack{
             if !text.isEmpty
             {
                 Button(action:
@@ -62,21 +63,8 @@ struct ClearButton: ViewModifier
                     Image(systemName: "xmark.circle.fill")
                         .foregroundColor(Color(UIColor.opaqueSeparator))
                 }
-                .padding(.trailing, 70)
+                .padding(.trailing, 15)
             }
-        }
-    }
-}
-struct SubmitButton: ViewModifier
-{
-    @Binding var text: String
-    @Binding var locationManager : CLLocationManager
-
-    public func body(content: Content) -> some View
-    {
-        ZStack(alignment: .trailing)
-        {
-            content
             Button(action:
             {
                 if self.text.contains(",")
@@ -87,6 +75,11 @@ struct SubmitButton: ViewModifier
                     let locationLongitude: Double = Double(arrayCoordinates[1]) ?? 0
                     createSearchAnnotation (latitude: locationLatitude, longitude: locationLongitude)
                 }
+                else
+                {
+                    //search for long and lat
+                    
+                }
             })
             {
                 Image(systemName: "magnifyingglass")
@@ -94,6 +87,7 @@ struct SubmitButton: ViewModifier
             }
             .padding(.trailing, 35)
             
+            }
         }
     }
 }

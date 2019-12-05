@@ -35,7 +35,7 @@ struct AccountView: View {
                 .background(Color.blue)
                 .foregroundColor(Color.white)
 
-                VStack {
+                List {
                     HStack{
                         Toggle(isOn: $sliderValue)
                         {
@@ -46,13 +46,19 @@ struct AccountView: View {
                     .padding(10)
                     
                     HStack{
-                        Text("Account Information")
-                            .font(.body)
+                        Button(action: {
+                               print("Tapped")
+                           }, label: {
+                               HStack{
+                                   Text("Account Information")
+                                       .font(.body)
+                               }
+                           })
                     }
                     .padding(10)
                     
                     HStack{
-                        Text("Notifications")
+                        Text("Location Settings")
                             .font(.body)
                     }
                     .padding(10)
@@ -63,6 +69,7 @@ struct AccountView: View {
                         }
                     .padding(10)
                 }
+                .navigationBarTitle("User Settings")
                 
                 Spacer()
             }

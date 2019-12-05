@@ -11,24 +11,23 @@ import SwiftUI
 
 struct NavView: View {
     
+    @State private var selection = 2
+    
     init () {
-        //Set defualt background color as green color
+        //Set defualts of UINavigationBar
         UINavigationBar.appearance().shadowImage = UIImage()
-        //UINavigationBar.appearance().backgroundImage = (UIImage(), for: UIBarMetrics.default)
         UINavigationBar.appearance().isTranslucent = true
-        UINavigationBar.appearance().backgroundColor = UIColor(red: 15/255, green: 157/255, blue: 88/255, alpha: 1)
-        UINavigationBar.appearance().barTintColor = UIColor(red: 15/255, green: 157/255, blue: 88/255, alpha: 1)
+        UINavigationBar.appearance().backgroundColor = Colours.green
+        UINavigationBar.appearance().barTintColor = Colours.green
         UINavigationBar.appearance().titleTextAttributes = [.foregroundColor: UIColor.white]
         UINavigationBar.appearance().largeTitleTextAttributes = [.foregroundColor: UIColor.white]
-        
+        //Set defaults of UITabBar
         UITabBar.appearance().shadowImage = UIImage()
         UITabBar.appearance().backgroundImage = UIImage()
         UITabBar.appearance().isTranslucent = true
-        UITabBar.appearance().backgroundColor = UIColor(red: 15/255, green: 157/255, blue: 88/255, alpha: 1)
-        UITabBar.appearance().unselectedItemTintColor = UIColor(red: 204/255, green: 204/255, blue: 204/255, alpha: 1)
+        UITabBar.appearance().backgroundColor = Colours.green
+        UITabBar.appearance().unselectedItemTintColor = Colours.lightGrey
     }
-    
-    @State private var selection = 2
     
     var body: some View {
         TabView(selection: $selection){
