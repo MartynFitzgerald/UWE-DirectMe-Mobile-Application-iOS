@@ -18,10 +18,27 @@ class RegisterController: UIViewController {
     @IBOutlet weak var passwordTextField: UITextField!
     @IBOutlet weak var confirmPasswordTextField: UITextField!
     @IBOutlet weak var errorTextView: UITextView!
+    @IBOutlet weak var navigationBar: UINavigationBar!
+    @IBOutlet weak var navigationTitle: UINavigationItem!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view.
+        //Set gradient of storyborad background
+        view.setGradientBackground(colorOne: Colours.orange, colorTwo: Colours.red)
+        //Make navigationBar Transparent
+        navigationBar.setBackgroundImage(UIImage(), for: .default)
+        navigationBar.shadowImage = UIImage()
+        navigationBar.isTranslucent = true
+        //Make navigationBar font and color
+        let attrs = [
+            NSAttributedString.Key.foregroundColor: UIColor.white,
+            NSAttributedString.Key.font: UIFont(name: "Pacifico", size:24)!
+        ]
+        navigationBar.titleTextAttributes = attrs
+    }
+    //Set Status bar text to white
+    override var preferredStatusBarStyle: UIStatusBarStyle {
+        return .lightContent
     }
     
     @IBAction func registerUser(_ sender: Any) {
@@ -124,29 +141,6 @@ class RegisterController: UIViewController {
         let paths = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)
         return paths[0]
     }
-    
-    //Function to check if the input from the user in the emailTextField is in a email format.
-    //https://stackoverflow.com/questions/25471114/how-to-validate-an-e-mail-address-in-swift
-    func isValidEmail(emailStr:String) -> Bool {
-        let emailRegEx = "[A-Z0-9a-z._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,64}"
-        let emailPred = NSPredicate(format:"SELF MATCHES %@", emailRegEx)
-        return emailPred.evaluate(with: emailStr)
-    }
-    //Function to check if the input from the user in the passwordTextField is in a password format.
-    // One uppercase, one digit, three lowercase and overall size is between eight to twelve characters.
-    func isValidPassword(passwordStr:String) -> Bool {
-        let passwordRegEx = "^(?=.*[A-Z])(?=.*[0-9])(?=.*[a-z].*[a-z].*[a-z]).{8,12}$"
-        let passwordPred = NSPredicate(format:"SELF MATCHES %@", passwordRegEx)
-        return passwordPred.evaluate(with: passwordStr)
-    }
-    //Function to check if the input from the user in the firstNameTextField and lastNameTextField is format below.
-    // overall size is between two to eighteen characters.
-    func isValidName(nameStr:String) -> Bool {
-        let nameRegEx = "^.{2,18}$"
-        let namePred = NSPredicate(format:"SELF MATCHES %@", nameRegEx)
-        return namePred.evaluate(with: nameStr)
-    }
-    
 }
 
 extension String {

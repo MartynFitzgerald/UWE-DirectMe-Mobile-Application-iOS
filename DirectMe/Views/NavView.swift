@@ -9,29 +9,6 @@
 
 import SwiftUI
 
-/*
-struct SelectionModel{
-    var selectionBackground: Int = 2 {
-        didSet {
-            switch selectionBackground {
-                case 0:
-                    UITabBar.appearance().backgroundColor = UIColor(red: 0/255, green: 255/255, blue: 155/255, alpha: 1)
-                case 1:
-                    UITabBar.appearance().backgroundColor = UIColor(red: 153/255, green: 15/255, blue: 153/255, alpha: 1)
-                case 2:
-                    UITabBar.appearance().backgroundColor = UIColor(red: 15/255, green: 157/255, blue: 88/255, alpha: 1)
-                case 3:
-                    UITabBar.appearance().backgroundColor = UIColor(red: 153/255, green: 15/255, blue: 15/255, alpha: 1)
-                case 4:
-                    UITabBar.appearance().backgroundColor = UIColor(red: 15/255, green: 135/255, blue: 153/255, alpha: 1)
-                default:
-                    UITabBar.appearance().backgroundColor = UIColor(red: 15/255, green: 157/255, blue: 88/255, alpha: 1)
-            }
-        }
-    }
-}
- */
-
 struct NavView: View {
     
     init () {

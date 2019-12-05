@@ -68,3 +68,24 @@ final class ImageStore {
     }
 }
 
+//Function to check if the input from the user in the emailTextField is in a email format.
+//https://stackoverflow.com/questions/25471114/how-to-validate-an-e-mail-address-in-swift
+func isValidEmail(emailStr:String) -> Bool {
+    let emailRegEx = "[A-Z0-9a-z._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,64}"
+    let emailPred = NSPredicate(format:"SELF MATCHES %@", emailRegEx)
+    return emailPred.evaluate(with: emailStr)
+}
+//Function to check if the input from the user in the passwordTextField is in a password format.
+// One uppercase, one digit, three lowercase and overall size is between eight to twelve characters.
+func isValidPassword(passwordStr:String) -> Bool {
+    let passwordRegEx = "^(?=.*[A-Z])(?=.*[0-9])(?=.*[a-z].*[a-z].*[a-z]).{8,12}$"
+    let passwordPred = NSPredicate(format:"SELF MATCHES %@", passwordRegEx)
+    return passwordPred.evaluate(with: passwordStr)
+}
+//Function to check if the input from the user in the firstNameTextField and lastNameTextField is format below.
+// overall size is between two to eighteen characters.
+func isValidName(nameStr:String) -> Bool {
+    let nameRegEx = "^.{2,18}$"
+    let namePred = NSPredicate(format:"SELF MATCHES %@", nameRegEx)
+    return namePred.evaluate(with: nameStr)
+}

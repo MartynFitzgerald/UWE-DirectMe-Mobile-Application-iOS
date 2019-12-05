@@ -8,26 +8,23 @@
 
 import UIKit
 import SwiftUI
-import CoreLocation
 
-class LoginController: UIViewController, CLLocationManagerDelegate {
+class LoginController: UIViewController {
     @IBOutlet weak var theContainer: UIView!
     @IBOutlet weak var emailTextField: UITextField!
     @IBOutlet weak var passwordTextField: UITextField!
     @IBOutlet weak var errorTextView: UITextView!
     
-    let locationManager = CLLocationManager()
-    var longitude : String = ""
-    var latitude : String = ""
-    
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        locationManager.delegate = self
-        locationManager.desiredAccuracy = kCLLocationAccuracyBest
-        locationManager.requestWhenInUseAuthorization()
-        locationManager.startUpdatingLocation()
+        //Set gradient of storyborad background
+        view.setGradientBackground(colorOne: Colours.orange, colorTwo: Colours.red)
     }
+    //Set Status bar text to white
+    override var preferredStatusBarStyle: UIStatusBarStyle {
+        return .lightContent
+    }
+
 
     @IBAction func loginButton(_ sender: Any) {
         let email:String? = (emailTextField.text ?? "").lowercased()
@@ -82,30 +79,20 @@ class LoginController: UIViewController, CLLocationManagerDelegate {
         }
         
     }
-    
-    func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
-        let location = locations[locations.count - 1]
-        
-        if location.horizontalAccuracy > 0 {
-            locationManager.stopUpdatingLocation()
-            
-            longitude = String(location.coordinate.longitude)
-            latitude = String(location.coordinate.latitude)
-        }
-    }
-    //Function to check if the input from the user in the emailTextField is in a email format.
-    //https://stackoverflow.com/questions/25471114/how-to-validate-an-e-mail-address-in-swift
-    func isValidEmail(emailStr:String) -> Bool {
-        let emailRegEx = "[A-Z0-9a-z._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,64}"
-        let emailPred = NSPredicate(format:"SELF MATCHES %@", emailRegEx)
-        return emailPred.evaluate(with: emailStr)
-    }
-    //Function to check if the input from the user in the passwordTextField is in a password format.
-    // One uppercase, one digit, three lowercase and overall size is between eight to twelve characters.
-    func isValidPassword(passwordStr:String) -> Bool {
-        let passwordRegEx = "^(?=.*[A-Z])(?=.*[0-9])(?=.*[a-z].*[a-z].*[a-z]).{8,12}$"
-        let passwordPred = NSPredicate(format:"SELF MATCHES %@", passwordRegEx)
-        return passwordPred.evaluate(with: passwordStr)
-    }
 }
 
+//https://www.youtube.com/watch?v=3gUNg3Jhjwo
+extension UIView {
+    
+    func setGradientBackground(colorOne: UIColor, colorTwo: UIColor) {
+        
+        let gradientLayer = CAGradientLayer()
+        gradientLayer.frame = bounds
+        gradientLayer.colors = [colorOne.cgColor, colorTwo.cgColor]
+        gradientLayer.locations = [0.0, 1.0]
+        gradientLayer.startPoint = CGPoint(x: 1.0, y: 1.0)
+        gradientLayer.endPoint = CGPoint(x: 0.0, y: 0.0)
+        
+        layer.insertSublayer(gradientLayer, at: 0)
+    }
+}
