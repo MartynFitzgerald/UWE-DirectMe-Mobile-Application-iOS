@@ -16,29 +16,29 @@ struct MapView: View {
     @State private var location:String = ""
     var body: some View {
         NavigationView {
-            ZStack{
+            ZStack(alignment: .top) {
                 MainMapView(locationManager: $locationManager)
                 TextField("Enter Location...", text: $location)
+                    //.font(.system(size: 25))
                     .textFieldStyle(RoundedBorderTextFieldStyle())
                     .background(Color.white)
                     .foregroundColor(.black)
                     .padding(20)
                     .modifier(textFieldButton(text: $location, locationManager: $locationManager))
-                    .offset(y: -250)
-                .navigationBarTitle(Text("Map"), displayMode: .inline)
-                .navigationBarItems(leading:
-                    Button(action: {
-                        print("Tapped")
-                    }, label: {
-                        HStack{
-                            Image(systemName: "square.and.arrow.up")
-                            .resizable()
-                            .frame(width: 20.0, height: 20.0, alignment: .center)
-                            .rotationEffect(.degrees(-90))
-                        }
-                    })
-                )
             }
+            .navigationBarTitle(Text("Map").font(.system(size:50)), displayMode: .inline)
+            .navigationBarItems(leading:
+                Button(action: {
+                    print("Tapped")
+                }, label: {
+                    HStack{
+                        Image(systemName: "square.and.arrow.up")
+                        .resizable()
+                        .frame(width: 20.0, height: 20.0, alignment: .center)
+                        .rotationEffect(.degrees(-90))
+                    }
+                })
+            )
         }
     }
 }

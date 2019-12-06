@@ -8,10 +8,8 @@
 
 import UIKit
 import SwiftUI
-import CoreLocation
 
 let historyData: [History] = load("historyData.json")
-var userData: [User] = load("userData.json")
 
 func load<T: Decodable>(_ filename: String) -> T {
     let data: Data

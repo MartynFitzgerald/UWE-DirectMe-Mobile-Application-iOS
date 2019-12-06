@@ -20,6 +20,7 @@ class RegisterController: UIViewController {
     @IBOutlet weak var errorTextView: UITextView!
     @IBOutlet weak var navigationBar: UINavigationBar!
     @IBOutlet weak var navigationTitle: UINavigationItem!
+    @IBOutlet weak var registerButton: UIButton!
     //Set stored variables to defaults
     let defaults = UserDefaults.standard
     
@@ -34,9 +35,11 @@ class RegisterController: UIViewController {
         //Make navigationBar font and color
         let attrs = [
             NSAttributedString.Key.foregroundColor: UIColor.white,
-            NSAttributedString.Key.font: UIFont(name: "Pacifico", size:24)!
+            NSAttributedString.Key.font: UIFont(name: "Pacifico", size:32)!
         ]
         navigationBar.titleTextAttributes = attrs
+        //Set button radius
+        registerButton.layer.cornerRadius = 25.0
     }
     //Set Status bar text to white
     override var preferredStatusBarStyle: UIStatusBarStyle {
@@ -112,7 +115,13 @@ class RegisterController: UIViewController {
                        "password": password!,
                        "profilePicture": "boy"
                        ] as [String : Any]
-
+                    
+                    //Empty all textfields
+                    firstNameTextField.text = ""
+                    lastNameTextField.text = ""
+                    emailTextField.text = ""
+                    passwordTextField.text = ""
+                    confirmPasswordTextField.text = ""
                     //Amend the usersArray with the new user
                     usersArray.append(newUser)
                     //Set new usersArrays within the users defaults

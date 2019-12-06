@@ -14,6 +14,8 @@ class LoginController: UIViewController {
     @IBOutlet weak var emailTextField: UITextField!
     @IBOutlet weak var passwordTextField: UITextField!
     @IBOutlet weak var errorTextView: UITextView!
+    @IBOutlet weak var loginButton: UIButton!
+    @IBOutlet weak var registerButton: UIButton!
     //Set stored variables to defaults
     let defaults = UserDefaults.standard
     
@@ -21,6 +23,8 @@ class LoginController: UIViewController {
         super.viewDidLoad()
         //Set gradient of storyborad background
         view.setGradientBackground(colorOne: Colours.orange, colorTwo: Colours.red)
+        loginButton.layer.cornerRadius = 25.0
+        registerButton.layer.cornerRadius = 25.0
     }
     //Set Status bar text to white
     override var preferredStatusBarStyle: UIStatusBarStyle {
@@ -64,7 +68,6 @@ class LoginController: UIViewController {
                     {
                         //Store this into userdefaults
                         UserDefaults.standard.set(user, forKey: "currentUser")
-                    
                         //Create a new UIHostingController with the view as the SwiftUI NavView
                         //https://stackoverflow.com/questions/56433826/include-swiftui-views-in-existing-uikit-application
                         let viewCtrl = UIHostingController(rootView: NavView())
