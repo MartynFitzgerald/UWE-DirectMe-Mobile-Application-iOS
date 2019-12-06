@@ -20,6 +20,8 @@ class RegisterController: UIViewController {
     @IBOutlet weak var errorTextView: UITextView!
     @IBOutlet weak var navigationBar: UINavigationBar!
     @IBOutlet weak var navigationTitle: UINavigationItem!
+    //Set stored variables to defaults
+    let defaults = UserDefaults.standard
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -84,16 +86,12 @@ class RegisterController: UIViewController {
             }
             else
             {
+                var usersArray = defaults.object(forKey: "usersArray") as? [[String : Any]] ?? [[String : Any]]()
                 //Get array of users from storage and if not set then
-                var usersArray = UserDefaults.standard.object(forKey: "usersArray") as? [User] ?? [User]()
-                
-                dump(usersArray)
-                
-                if !usersArray.isEmpty
-                {
+                if usersArray.count > 0 {
                     for user in usersArray
                     {
-                        if user.email == email
+                        if user["email"] as? String == email
                         {
                             self.errorTextView.text = "This email has already got an account with DirectMe."
                             break;
@@ -103,22 +101,22 @@ class RegisterController: UIViewController {
                 //check if there was no error
                 if self.errorTextView.text == ""
                 {
+                    //Get the amount of users within the system to set new id
                     let userID: Int = usersArray.count
-                    
                     //Create a new User object with the data inputted and default settings like profilePicture
-                    let newUser: User = User(
-                        id: userID,
-                        firstName: firstName!,
-                        lastName: lastName!,
-                        email: email!,
-                        password: password!,
-                        profilePicture: "boy"
-                    )
+                    let newUser = [
+                       "id": userID,
+                       "firstName": firstName!,
+                       "lastName": lastName!,
+                       "email": email!,
+                       "password": password!,
+                       "profilePicture": "boy"
+                       ] as [String : Any]
+
                     //Amend the usersArray with the new user
                     usersArray.append(newUser)
-                    //Save array to user defaults
-                    dump(usersArray)
-                    //UserDefaults.standard.set(usersArray, forKey: "usersArray")
+                    //Set new usersArrays within the users defaults
+                    defaults.set(usersArray, forKey: "usersArray")
                 }
             }
         }

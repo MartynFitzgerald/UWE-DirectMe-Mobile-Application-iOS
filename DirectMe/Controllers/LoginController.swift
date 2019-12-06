@@ -14,6 +14,8 @@ class LoginController: UIViewController {
     @IBOutlet weak var emailTextField: UITextField!
     @IBOutlet weak var passwordTextField: UITextField!
     @IBOutlet weak var errorTextView: UITextView!
+    //Set stored variables to defaults
+    let defaults = UserDefaults.standard
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -50,29 +52,35 @@ class LoginController: UIViewController {
         }
         else
         {
-            var userNotFound: Bool = true
-            for user in userData
-            {
-                //Check if the user exists within the database of users.
-                if user.email == email && user.password == password
+            //Get array of users from storage
+            let usersArray = defaults.object(forKey: "usersArray") as? [[String : Any]] ?? [[String : Any]]()
+            var isUserValid: Bool = false
+            // check if there is users stored
+            if usersArray.count > 0 {
+                for user in usersArray
                 {
-                    userNotFound = false
-                    //Store this into userdefaults
-                    UserDefaults.standard.set(user.firstName, forKey: "firstName")
-                    UserDefaults.standard.set(user.lastName, forKey: "lastName")
-                    UserDefaults.standard.set(user.email, forKey: "email")
-                    UserDefaults.standard.set(user.profilePicture, forKey: "profilePicture")
+                    //Check if the user exists within the database of users.
+                    if user["email"] as? String == email && user["password"] as? String == password
+                    {
+                        //Store this into userdefaults
+                        UserDefaults.standard.set(user, forKey: "currentUser")
                     
-                    //Create a new UIHostingController with the view as the SwiftUI NavView
-                    //https://stackoverflow.com/questions/56433826/include-swiftui-views-in-existing-uikit-application
-                    let viewCtrl = UIHostingController(rootView: NavView())
-                    addChild(viewCtrl)
-                    viewCtrl.view.frame = theContainer.bounds
-                    theContainer.addSubview(viewCtrl.view)
-                    viewCtrl.didMove(toParent: self)
+                        //Create a new UIHostingController with the view as the SwiftUI NavView
+                        //https://stackoverflow.com/questions/56433826/include-swiftui-views-in-existing-uikit-application
+                        let viewCtrl = UIHostingController(rootView: NavView())
+                        addChild(viewCtrl)
+                        viewCtrl.view.frame = theContainer.bounds
+                        theContainer.addSubview(viewCtrl.view)
+                        viewCtrl.didMove(toParent: self)
+                        //Setting isUserValid as true
+                        isUserValid = true
+                        
+                        break;
+                    }
                 }
             }
-            if userNotFound
+            //When the user isnt valid 
+            if !isUserValid
             {
                 self.errorTextView.text = "The detais given are not a registered account at DirectMe. Please try again "
             }

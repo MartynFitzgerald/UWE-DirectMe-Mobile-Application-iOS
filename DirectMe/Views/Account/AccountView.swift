@@ -8,12 +8,21 @@
 
 import SwiftUI
 
-
 struct AccountView: View {
-    let firstName: String = UserDefaults.standard.string(forKey: "firstName") ?? "Unknown"
-    let lastName: String = UserDefaults.standard.string(forKey: "lastName") ?? "Unknown"
-    let email: String = UserDefaults.standard.string(forKey: "email") ?? "Unknown"
-    let profilePicture: String = UserDefaults.standard.string(forKey: "profilePicture") ?? "Unknown"
+    
+    //Set stored variables to defaults
+    let defaults = UserDefaults.standard
+    
+    let currentUser: [String] = UserDefaults.standard.object(forKey: "currentUser") as? [String] ?? [String]()
+    
+    
+    func test() {
+        dump(currentUser)
+    }
+    let firstName: String = ""
+    let lastName: String = ""
+    let email: String = ""
+    let profilePicture: String = ""
     
     @State private var sliderValue: Bool = false
     
