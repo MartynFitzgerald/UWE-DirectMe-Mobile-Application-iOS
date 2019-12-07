@@ -18,7 +18,6 @@
 		5A366774237DFBFF00C494D9 /* CircleImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A366773237DFBFF00C494D9 /* CircleImage.swift */; };
 		5A366776237DFC6D00C494D9 /* HistoryMapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A366775237DFC6D00C494D9 /* HistoryMapView.swift */; };
 		5A3C7B9A237E111800782098 /* DataController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A3C7B99237E111800782098 /* DataController.swift */; };
-		5A3C7BC6237E12D900782098 /* turtlerock.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 5A3C7BBB237E12D400782098 /* turtlerock.jpg */; };
 		5A565B77237B15D9008DB7EB /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A565B76237B15D9008DB7EB /* AppDelegate.swift */; };
 		5A565B79237B15D9008DB7EB /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A565B78237B15D9008DB7EB /* SceneDelegate.swift */; };
 		5A565B7B237B15D9008DB7EB /* LoginController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A565B7A237B15D9008DB7EB /* LoginController.swift */; };
@@ -56,7 +55,6 @@
 		5A366773237DFBFF00C494D9 /* CircleImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CircleImage.swift; sourceTree = "<group>"; };
 		5A366775237DFC6D00C494D9 /* HistoryMapView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryMapView.swift; sourceTree = "<group>"; };
 		5A3C7B99237E111800782098 /* DataController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataController.swift; sourceTree = "<group>"; };
-		5A3C7BBB237E12D400782098 /* turtlerock.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = turtlerock.jpg; sourceTree = "<group>"; };
 		5A565B73237B15D9008DB7EB /* DirectMe.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DirectMe.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		5A565B76237B15D9008DB7EB /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		5A565B78237B15D9008DB7EB /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -109,7 +107,6 @@
 				5A15F275239992970028CBBB /* Fonts */,
 				5AB47CAA23941DB600C469E7 /* Avatars Icons */,
 				5AB47C9C238D8EC600C469E7 /* Logo.png */,
-				5A3C7BBB237E12D400782098 /* turtlerock.jpg */,
 				5A36676F237DF09400C494D9 /* historyData.json */,
 			);
 			path = Resources;
@@ -303,7 +300,6 @@
 				5AB47CC9239572F300C469E7 /* male2.png in Resources */,
 				5AB47CCB239572F300C469E7 /* female1.png in Resources */,
 				5A366770237DF09400C494D9 /* historyData.json in Resources */,
-				5A3C7BC6237E12D900782098 /* turtlerock.jpg in Resources */,
 				5AB47CCD239572F300C469E7 /* male5.png in Resources */,
 				5A565B83237B15DB008DB7EB /* LaunchScreen.storyboard in Resources */,
 				5AB47CCF239572F300C469E7 /* male6.png in Resources */,

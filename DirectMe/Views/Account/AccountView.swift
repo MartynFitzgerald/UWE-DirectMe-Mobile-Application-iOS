@@ -13,12 +13,14 @@ struct AccountView: View {
     //$currentUser["firstName"]
     
     @State private var enableAirplaneMode = false
-    var notificationMode = ["Lock Screen", "Notification Centre", "Banners"]
     @State private var selectedMode = 0
+    @State private var selectedProfilePicture = 0
+    @State var sliderValue = 200.0
     
-    @State var sliderValue = 0.0
-    var minimumValue = 0.0
-    var maximumvalue = 100.0
+    var notificationMode = ["Lock Screen", "Notification Centre", "Banners"]
+    var profilePictures = ["male1", "male2", "male3", "male4", "male5", "male6", "male7", "female1", "female2"]
+    var minimumValue = 500.0
+    var maximumvalue = 2500.0
       
     
     var body: some View {
@@ -80,49 +82,18 @@ struct AccountView: View {
                             Spacer()
                             Text("martyn2.fitzgerald@live.uwe.ac.uk")
                         }
-                        
-                        HStack {
-                            Text("Software Version")
-                            Spacer()
-                            Text("13.1.1")
+                        Picker(selection: $selectedProfilePicture, label: Text("Profile Pictures")) {
+                            ForEach(0..<profilePictures.count) {
+                                Text(self.profilePictures[$0])
+                                //AccountProfilePicture(name: self.profilePictures[$0])
+                                Image(self.profilePictures[$0])
+                                    .resizable()
+                                    .frame(width: 128.0, height: 128.0)
+                                    .shadow(radius: 10)
+                            }
                         }
                     }
                 }
-
-                /*List {
-                    HStack{
-                        Toggle(isOn: $sliderValue)
-                        {
-                            Text("Dark Mode")
-                                .font(.body)
-                        }
-                    }
-                    .padding(10)
-                    
-                    HStack{
-                        Button(action: {
-                               print("Tapped")
-                           }, label: {
-                               HStack{
-                                   Text("Account Information")
-                                       .font(.body)
-                               }
-                           })
-                    }
-                    .padding(10)
-                    
-                    HStack{
-                        Text("Location Settings")
-                            .font(.body)
-                    }
-                    .padding(10)
-                    
-                    HStack{
-                        Text("Notifications")
-                            .font(.body)
-                        }
-                    .padding(10)
-                }*/
             }
             .navigationBarTitle(Text("Account"), displayMode: .inline)
             .navigationBarItems(leading:

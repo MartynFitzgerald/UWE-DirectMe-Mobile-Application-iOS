@@ -15,7 +15,27 @@ struct InformationView: View {
 
     var body: some View {
         NavigationView {
-            Text("Information")
+        VStack {
+            Form {
+                Section(header: Text("About This Applicaiton")) {
+                    HStack {
+                        Text("Name")
+                        Spacer()
+                        Text("DirectMe")
+                    }
+                    HStack {
+                        Text("Contact Email")
+                        Spacer()
+                        Text("martyn2.fitzgerald@live.uwe.ac.uk")
+                    }
+                    
+                    HStack {
+                        Text("Software Version")
+                        Spacer()
+                        Text("13.1.1")
+                    }
+                }
+            }
             .navigationBarTitle(Text("Information"), displayMode: .inline)
             .navigationBarItems(leading:
                 Button(action: {
@@ -29,6 +49,7 @@ struct InformationView: View {
                     }
                 })
             )
+            }
         }
     }
 }
