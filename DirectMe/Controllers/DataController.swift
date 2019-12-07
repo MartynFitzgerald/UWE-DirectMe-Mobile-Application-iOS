@@ -10,6 +10,7 @@ import UIKit
 import SwiftUI
 
 let historyData: [History] = load("historyData.json")
+let carParksData: [CarParks] = load("carParksData.json")
 
 func load<T: Decodable>(_ filename: String) -> T {
     let data: Data

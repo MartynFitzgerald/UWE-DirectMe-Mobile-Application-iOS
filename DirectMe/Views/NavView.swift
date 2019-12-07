@@ -39,11 +39,11 @@ struct NavView: View {
                     }
                 }
                 .tag(0)
-            UnknownView()
+            CarParkView()
                 .tabItem {
                     VStack {
-                        Image(systemName: "questionmark.circle")
-                        Text("Unknown")
+                        Image(systemName: "p.square.fill")
+                        Text("Car Parks")
                     }
                 }
                 .tag(1)

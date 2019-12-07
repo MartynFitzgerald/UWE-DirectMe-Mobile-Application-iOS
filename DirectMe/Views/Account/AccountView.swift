@@ -30,7 +30,7 @@ struct AccountView: View {
                     AccountProfilePicture(image: ImageStore.shared.image(name: "male1", imageExtension: "png"))
                       .offset(y: -30)
                       .padding(.bottom, -30)
-                    Text("($currentUser[1]) ($currentUser[2])")
+                    Text("($currentUser.firstName) ($currentUser.lastName)")
                         .font(.title)
                     Text("($currentUser[3])")
                         .font(.subheadline)
@@ -40,9 +40,6 @@ struct AccountView: View {
                 .frame(minWidth: 0, maxWidth: .infinity, minHeight: 0, maxHeight: 300)
                 .background(Color.blue)
                 .foregroundColor(Color.white)
-                
-                Spacer()
-                
                 Form {
                     Section(header: Text("General Settings")){
                         Toggle(isOn: $enableAirplaneMode) {
@@ -94,6 +91,41 @@ struct AccountView: View {
                         }
                     }
                 }
+
+                /*List {
+                    HStack{
+                        Toggle(isOn: $sliderValue)
+                        {
+                            Text("Dark Mode")
+                                .font(.body)
+                        }
+                    }
+                    .padding(10)
+                    
+                    HStack{
+                        Button(action: {
+                               print("Tapped")
+                           }, label: {
+                               HStack{
+                                   Text("Account Information")
+                                       .font(.body)
+                               }
+                           })
+                    }
+                    .padding(10)
+                    
+                    HStack{
+                        Text("Location Settings")
+                            .font(.body)
+                    }
+                    .padding(10)
+                    
+                    HStack{
+                        Text("Notifications")
+                            .font(.body)
+                        }
+                    .padding(10)
+                }*/
             }
             .navigationBarTitle(Text("Account"), displayMode: .inline)
             .navigationBarItems(leading:

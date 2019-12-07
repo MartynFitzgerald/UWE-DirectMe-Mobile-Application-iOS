@@ -8,12 +8,16 @@
 
 import SwiftUI
 
-struct UnknownView: View {
+struct CarParkView: View {
     
     var body: some View {
         NavigationView {
-            Text("Unknown")
-            .navigationBarTitle(Text("Unknown"), displayMode: .inline)
+            List (carParksData) { carPark in
+                NavigationLink(destination: CarParkDetail(carPark: carPark)) {
+                    CarParkRow(carPark: carPark)
+                }
+            }
+            .navigationBarTitle(Text("Car Parks"), displayMode: .inline)
             .navigationBarItems(leading:
                 Button(action: {
                     print("Tapped")
@@ -30,8 +34,8 @@ struct UnknownView: View {
     }
 }
 
-struct UnknownView_Previews: PreviewProvider {
+struct CarParkView_Previews: PreviewProvider {
     static var previews: some View {
-        UnknownView()
+        CarParkView()
     }
 }
