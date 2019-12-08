@@ -173,8 +173,8 @@
 		5A565B8A237B1676008DB7EB /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
-				5A565B76237B15D9008DB7EB /* AppDelegate.swift */,
 				5A565B78237B15D9008DB7EB /* SceneDelegate.swift */,
+				5A565B76237B15D9008DB7EB /* AppDelegate.swift */,
 				5A3C7B99237E111800782098 /* DataController.swift */,
 				5A565B7A237B15D9008DB7EB /* LoginController.swift */,
 				5AB47CA323914C5D00C469E7 /* RegisterController.swift */,

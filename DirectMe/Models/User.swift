@@ -16,20 +16,17 @@ struct User: Hashable, Codable, Identifiable {
     var email:  String
     var password: String
     var profilePicture: String
-    /*
-    fileprivate var coordinates: Coordinates
-    var locationCoordinate: CLLocationCoordinate2D {
-        CLLocationCoordinate2D(
-            latitude: coordinates.latitude,
-            longitude: coordinates.longitude)
-    }*/
+    var isDarkMode: Bool
+    var radius: Double
     
-    init(id: Int, firstName: String, lastName: String, email: String, password: String, profilePicture: String) {
+    init(id: Int, firstName: String, lastName: String, email: String, password: String, profilePicture: String, isDarkMode: Bool, radius: Double) {
         self.id = id
         self.firstName = firstName
         self.lastName = lastName
         self.email = email
         self.password = password
         self.profilePicture = profilePicture
+        self.isDarkMode = isDarkMode
+        self.radius = radius
     }
 }

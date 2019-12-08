@@ -67,19 +67,35 @@ struct textFieldButton: ViewModifier
             }
             Button(action:
             {
+                var locationLatitude: Double = 0
+                var locationLongitude: Double = 0
                 if self.text.contains(",")
                 {
                     let arrayCoordinates = self.text.components(separatedBy: ",")
                     
-                    let locationLatitude: Double = Double(arrayCoordinates[0]) ?? 0
-                    let locationLongitude: Double = Double(arrayCoordinates[1]) ?? 0
-                    createSearchAnnotation (latitude: locationLatitude, longitude: locationLongitude)
+                    locationLatitude = Double(arrayCoordinates[0]) ?? 0
+                    locationLongitude = Double(arrayCoordinates[1]) ?? 0
+                    
+                    //get the best location
                 }
                 else
                 {
                     //search for long and lat
+                    let searchRequest = MKLocalSearch.Request()
+                    searchRequest.naturalLanguageQuery = self.text
+                    let search = MKLocalSearch(request: searchRequest)
                     
+                    search.start{ response, error in guard let response = response else {
+                        print ("Error: \(error?.localizedDescription ?? "unknown error").")
+                        return
+                        
+                        }
+                        locationLatitude = response.boundingRegion.center.latitude
+                        locationLongitude = response.boundingRegion.center.longitude
+                        
+                    }
                 }
+                createSearchAnnotation (latitude: locationLatitude, longitude: locationLongitude)
             })
             {
                 Image(systemName: "magnifyingglass")
@@ -161,8 +177,8 @@ func createSearchAnnotation (latitude: Double, longitude: Double)
     let coordinate = CLLocationCoordinate2DMake(latitude, longitude)
     let point = MKPointAnnotation()
     //Setting attibutes of MKPointAnnotation
-    point.title = "Your Location!"
-    point.subtitle = "Current"
+    point.title = "Searching"
+    point.subtitle = "Car Parks Around Here"
     point.coordinate = coordinate
     //Custom View for Annotation
     let annotationView = MKAnnotationView(annotation: point, reuseIdentifier: "customView")

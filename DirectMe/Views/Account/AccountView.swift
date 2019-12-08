@@ -9,19 +9,17 @@
 import SwiftUI
 
 struct AccountView: View {
-    @State private var currentUser: [String : Any] = UserDefaults.standard.object(forKey: "currentUser") as? [String : Any] ?? [String : Any]()
-    //$currentUser["firstName"]
-    
     @State private var enableAirplaneMode = false
     @State private var selectedMode = 0
     @State private var selectedProfilePicture = 0
     @State var sliderValue = 200.0
     
+    let currentUser: [String : Any] = UserDefaults.standard.object(forKey: "currentUser") as! [String : Any]
+
     var notificationMode = ["Lock Screen", "Notification Centre", "Banners"]
     var profilePictures = ["male1", "male2", "male3", "male4", "male5", "male6", "male7", "female1", "female2"]
     var minimumValue = 500.0
-    var maximumvalue = 2500.0
-      
+    var maximumvalue = 2000.0
     
     var body: some View {
         NavigationView {
@@ -30,11 +28,9 @@ struct AccountView: View {
                     AccountProfilePicture(image: ImageStore.shared.image(name: "male1", imageExtension: "png"))
                       .offset(y: -30)
                       .padding(.bottom, -30)
-                    Text("($currentUser.firstName) ($currentUser.lastName)")
+                    Text("\(currentUser["firstName"] as? String ?? "") \(currentUser["lastName"] as? String ?? "")")
                         .font(.title)
-                    Text("($currentUser[3])")
-                        .font(.subheadline)
-                    Text("Location")
+                    Text("\(currentUser["email"] as? String ?? "")")
                         .font(.subheadline)
                 }
                 .frame(minWidth: 0, maxWidth: .infinity, minHeight: 0, maxHeight: 300)
@@ -70,14 +66,19 @@ struct AccountView: View {
                     
                     Section(header: Text("About")) {
                         HStack {
-                            Text("Name")
+                            Text("First Name")
                             Spacer()
-                            Text("Martyn Fitzgerald")
+                            Text("\(currentUser["firstName"] as? String ?? "")")
+                        }
+                        HStack {
+                            Text("Last Name")
+                            Spacer()
+                            Text("\(currentUser["lastName"] as? String ?? "")")
                         }
                         HStack {
                             Text("Email")
                             Spacer()
-                            Text("martyn2.fitzgerald@live.uwe.ac.uk")
+                            Text("\(currentUser["email"] as? String ?? "")")
                         }
                         Picker(selection: $selectedProfilePicture, label: Text("Profile Pictures")) {
                             ForEach(0..<profilePictures.count) {

@@ -113,7 +113,9 @@ class RegisterController: UIViewController {
                        "lastName": lastName!,
                        "email": email!,
                        "password": password!,
-                       "profilePicture": "boy"
+                       "profilePicture": "boy",
+                       "isDarkMode": false,
+                       "radius": 1000.0
                        ] as [String : Any]
                     
                     //Empty all textfields
