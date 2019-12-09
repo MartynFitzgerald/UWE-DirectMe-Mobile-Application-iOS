@@ -32,20 +32,21 @@ struct InformationView: View {
                     HStack {
                         Text("Software Version")
                         Spacer()
-                        Text("13.1.1")
+                        Text("0.29")
                     }
                 }
             }
             .navigationBarTitle(Text("Information"), displayMode: .inline)
             .navigationBarItems(leading:
                 Button(action: {
-                    print("Tapped")
+                    signOut()
                 }, label: {
                     HStack{
                         Image(systemName: "square.and.arrow.up")
                         .resizable()
                         .frame(width: 20.0, height: 20.0, alignment: .center)
                         .rotationEffect(.degrees(-90))
+                        Text("Sign Out")
                     }
                 })
             )

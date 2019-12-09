@@ -66,6 +66,17 @@ final class ImageStore {
         return images.index(forKey: name)!
     }
 }
+//Function to sign out current user and send them back to the original login view
+func signOut() {
+    //Remove current user in user defaults
+    UserDefaults.standard.removeObject(forKey: "currentUser")
+    //Sending user back to the login page
+    //let viewCtrl = UIHostingController(rootView:Main())
+    //addChild(viewCtrl)
+    //viewCtrl.view.frame = theContainer.bounds
+    //theContainer.addSubview(viewCtrl.view)
+    //viewCtrl.didMove(toParent: self)
+}
 
 //Function to check if the input from the user in the emailTextField is in a email format.
 //https://stackoverflow.com/questions/25471114/how-to-validate-an-e-mail-address-in-swift

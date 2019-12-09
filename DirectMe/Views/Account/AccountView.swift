@@ -9,10 +9,10 @@
 import SwiftUI
 
 struct AccountView: View {
-    @State private var enableAirplaneMode = false
+    @State private var enableDarkMode = false
     @State private var selectedMode = 0
     @State private var selectedProfilePicture = 0
-    @State var sliderValue = 200.0
+    @State var sliderValue = 500.0
     
     let currentUser: [String : Any] = UserDefaults.standard.object(forKey: "currentUser") as! [String : Any]
 
@@ -38,7 +38,7 @@ struct AccountView: View {
                 .foregroundColor(Color.white)
                 Form {
                     Section(header: Text("General Settings")){
-                        Toggle(isOn: $enableAirplaneMode) {
+                        Toggle(isOn: $enableDarkMode) {
                             Text("Dark Mode")
                         }
                         VStack(alignment: .leading) {
@@ -92,52 +92,18 @@ struct AccountView: View {
                         }
                     }
                 }
-
-                /*List {
-                    HStack{
-                        Toggle(isOn: $sliderValue)
-                        {
-                            Text("Dark Mode")
-                                .font(.body)
-                        }
-                    }
-                    .padding(10)
-                    
-                    HStack{
-                        Button(action: {
-                               print("Tapped")
-                           }, label: {
-                               HStack{
-                                   Text("Account Information")
-                                       .font(.body)
-                               }
-                           })
-                    }
-                    .padding(10)
-                    
-                    HStack{
-                        Text("Location Settings")
-                            .font(.body)
-                    }
-                    .padding(10)
-                    
-                    HStack{
-                        Text("Notifications")
-                            .font(.body)
-                        }
-                    .padding(10)
-                }*/
             }
             .navigationBarTitle(Text("Account"), displayMode: .inline)
             .navigationBarItems(leading:
                 Button(action: {
-                    print("Tapped")
+                    signOut()
                 }, label: {
                     HStack{
                         Image(systemName: "square.and.arrow.up")
                         .resizable()
                         .frame(width: 20.0, height: 20.0, alignment: .center)
                         .rotationEffect(.degrees(-90))
+                        Text("Sign Out")
                     }
                 })
             )

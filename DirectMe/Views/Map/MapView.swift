@@ -29,13 +29,14 @@ struct MapView: View {
             .navigationBarTitle(Text("Map").font(.system(size:50)), displayMode: .inline)
             .navigationBarItems(leading:
                 Button(action: {
-                    print("Tapped")
+                    signOut()
                 }, label: {
                     HStack{
                         Image(systemName: "square.and.arrow.up")
                         .resizable()
                         .frame(width: 20.0, height: 20.0, alignment: .center)
                         .rotationEffect(.degrees(-90))
+                        Text("Sign Out")
                     }
                 })
             )
@@ -67,14 +68,13 @@ struct textFieldButton: ViewModifier
             }
             Button(action:
             {
-                var locationLatitude: Double = 0
-                var locationLongitude: Double = 0
                 if self.text.contains(",")
                 {
                     let arrayCoordinates = self.text.components(separatedBy: ",")
                     
-                    locationLatitude = Double(arrayCoordinates[0]) ?? 0
-                    locationLongitude = Double(arrayCoordinates[1]) ?? 0
+                    let locationLatitude = Double(arrayCoordinates[0]) ?? 0
+                    let locationLongitude = Double(arrayCoordinates[1]) ?? 0
+                    createSearchAnnotation (latitude: locationLatitude, longitude: locationLongitude)
                     
                     //get the best location
                 }
@@ -90,12 +90,12 @@ struct textFieldButton: ViewModifier
                         return
                         
                         }
-                        locationLatitude = response.boundingRegion.center.latitude
-                        locationLongitude = response.boundingRegion.center.longitude
+                        let locationLatitude = Double(round(1000*response.boundingRegion.center.latitude) / 1000)
+                        let locationLongitude = Double(round(1000*response.boundingRegion.center.longitude) / 1000)
+                        createSearchAnnotation (latitude: locationLatitude, longitude: locationLongitude)
                         
                     }
                 }
-                createSearchAnnotation (latitude: locationLatitude, longitude: locationLongitude)
             })
             {
                 Image(systemName: "magnifyingglass")

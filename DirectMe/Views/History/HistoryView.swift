@@ -20,13 +20,14 @@ struct HistoryView: View {
             .navigationBarTitle(Text("History"), displayMode: .inline)
             .navigationBarItems(leading:
                 Button(action: {
-                    print("Tapped")
+                    signOut()
                 }, label: {
                     HStack{
                         Image(systemName: "square.and.arrow.up")
                         .resizable()
                         .frame(width: 20.0, height: 20.0, alignment: .center)
                         .rotationEffect(.degrees(-90))
+                        Text("Sign Out")
                     }
                 })
             )
