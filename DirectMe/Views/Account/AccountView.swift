@@ -20,8 +20,8 @@ struct AccountView: View {
     
     var notificationMode = ["Lock Screen", "Notification Centre", "Banners"]
     var profilePictures = ["male1", "male2", "male3", "male4", "male5", "male6", "male7", "female1", "female2"]
-    var minimumValue = 10.0
-    var maximumvalue = 50.0
+    var minimumValue = 5.0
+    var maximumvalue = 25.0
     
     var body: some View {
         NavigationView {

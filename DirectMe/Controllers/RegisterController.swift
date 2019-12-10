@@ -115,7 +115,7 @@ class RegisterController: UIViewController {
                        "password": password!,
                        "profilePicture": 0,
                        "isDarkMode": false,
-                       "radius": 25.0
+                       "radius": 5.0
                        ] as [String : Any]
                     
                     //Empty all textfields
@@ -128,6 +128,8 @@ class RegisterController: UIViewController {
                     usersArray.append(newUser)
                     //Set new usersArrays within the users defaults
                     defaults.set(usersArray, forKey: "usersArray")
+                    //Tell the user they have registered
+                    self.errorTextView.text = "Congratulations you have registed to DirectMe. You can now sign into your account!"
                 }
             }
         }

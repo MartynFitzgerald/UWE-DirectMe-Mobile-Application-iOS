@@ -17,9 +17,20 @@ struct HistoryMapView: UIViewRepresentable {
     }
 
     func updateUIView(_ view: MKMapView, context: Context) {
-        let span = MKCoordinateSpan(latitudeDelta: 0.02, longitudeDelta: 0.02)
-        let region = MKCoordinateRegion(center: coordinate, span: span)
+        let region = MKCoordinateRegion(center: coordinate, latitudinalMeters: 250, longitudinalMeters: 250)
         view.setRegion(region, animated: true)
+        
+        let point = MKPointAnnotation()
+        //Setting attibutes of MKPointAnnotation
+        point.coordinate =  coordinate
+        //Custom View for Annotation
+        let annotationView = MKAnnotationView(annotation: point, reuseIdentifier: "customView")
+        //Your custom image icon
+        annotationView.image = UIImage(named: "circle")
+        
+        //self.parent.map.removeAnnotations(self.parent.map.annotations)
+        view.addAnnotation(point)
+        
     }
 }
 

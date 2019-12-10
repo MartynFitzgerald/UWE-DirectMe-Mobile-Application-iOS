@@ -181,19 +181,34 @@ struct textFieldButton: ViewModifier {
 }
 
 func createRoute (coordinateSelf: CLLocationCoordinate2D, coordinateDestination: CLLocationCoordinate2D) {
+    let radius: Double = UserDefaults.standard.double(forKey: "radius")
     
-    let radius: Double = UserDefaults.standard.object(forKey: "radius") as! Double
+    //Remove previous markers
+    map.removeAnnotations(map.annotations)
     
     for carPark in carParksData {
         let distance = carPark.getDistance(searchLocationCoordinate: coordinateDestination)
         
-        if distance <= radius as! Double {
+        if distance <= radius {
             print(distance)
+            let point = MKPointAnnotation()
+            //Setting attibutes of MKPointAnnotation
+            point.title = carPark.name
+            point.subtitle = String(distance)
+            point.coordinate =  CLLocationCoordinate2D(latitude: CLLocationDegrees(exactly: carPark.latitude)!, longitude: CLLocationDegrees(exactly: carPark.longitude)!)
+            //Custom View for Annotation
+            let annotationView = MKAnnotationView(annotation: point, reuseIdentifier: "customView")
+            //Your custom image icon
+            annotationView.image = UIImage(named: "circle")
+            
+            //self.parent.map.removeAnnotations(self.parent.map.annotations)
+            map.addAnnotation(point)
+
         }
     }
     
     
-    let request = MKDirections.Request()
+    /*let request = MKDirections.Request()
     request.source = MKMapItem(placemark: MKPlacemark(coordinate: coordinateSelf, addressDictionary: nil))
     request.destination = MKMapItem(placemark: MKPlacemark(coordinate: coordinateDestination, addressDictionary: nil))
     request.requestsAlternateRoutes = true
@@ -218,7 +233,7 @@ func createRoute (coordinateSelf: CLLocationCoordinate2D, coordinateDestination:
                 map.setVisibleMapRect(route.polyline.boundingMapRect, animated: true)
             }
         }
-    }
+    }*/
 }
 
 
