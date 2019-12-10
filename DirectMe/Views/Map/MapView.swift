@@ -190,11 +190,10 @@ func createRoute (coordinateSelf: CLLocationCoordinate2D, coordinateDestination:
         let distance = carPark.getDistance(searchLocationCoordinate: coordinateDestination)
         
         if distance <= radius {
-            print(distance)
             let point = MKPointAnnotation()
             //Setting attibutes of MKPointAnnotation
             point.title = carPark.name
-            point.subtitle = String(distance)
+            //point.subtitle = String("\(round(1000*distance)/1000) miles ")
             point.coordinate =  CLLocationCoordinate2D(latitude: CLLocationDegrees(exactly: carPark.latitude)!, longitude: CLLocationDegrees(exactly: carPark.longitude)!)
             //Custom View for Annotation
             let annotationView = MKAnnotationView(annotation: point, reuseIdentifier: "customView")
