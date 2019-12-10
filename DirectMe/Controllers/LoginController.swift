@@ -66,7 +66,7 @@ class LoginController: UIViewController {
                     //Check if the user exists within the database of users.
                     if user["email"] as? String == email && user["password"] as? String == password
                     {
-                        print(user)
+                        //print(user)
                         //Store this into userdefaults
                         UserDefaults.standard.set(user["id"], forKey: "id")
                         UserDefaults.standard.set(user["firstName"], forKey: "firstName")

@@ -22,6 +22,7 @@ struct AccountView: View {
     
     var notificationMode = ["Lock Screen", "Notification Centre", "Banners"]
     var profilePictures = ["male1", "male2", "male3", "male4", "male5", "male6", "male7", "female1", "female2"]
+    var profilePicturesTitles = ["Male 1", "Male 2", "Male 3", "Male 4", "Male 5", "Male 6", "Male 7", "Female 1", "Female 2"]
     var minimumValue = 5.0
     var maximumvalue = 25.0
     
@@ -87,7 +88,7 @@ struct AccountView: View {
                         }
                         Picker(selection: $selectedProfilePicture, label: Text("Profile Pictures")) {
                             ForEach (0..<profilePictures.count){
-                                Text(self.profilePictures[$0])
+                                Text(self.profilePicturesTitles[$0])
                                 //AccountProfilePicture(name: self.profilePictures[$0])
                                 Image(self.profilePictures[$0])
                                     .resizable()
@@ -99,19 +100,6 @@ struct AccountView: View {
                 }
             }
             .navigationBarTitle(Text("Account"), displayMode: .inline)
-            .navigationBarItems(leading:
-                Button(action: {
-                    signOut()
-                }, label: {
-                    HStack{
-                        Image(systemName: "square.and.arrow.up")
-                        .resizable()
-                        .frame(width: 20.0, height: 20.0, alignment: .center)
-                        .rotationEffect(.degrees(-90))
-                        Text("Sign Out")
-                    }
-                })
-            )
         }
     }
 }

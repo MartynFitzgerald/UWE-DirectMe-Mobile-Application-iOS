@@ -9,7 +9,7 @@
 import SwiftUI
 import MapKit
 
-struct HistoryMapView: UIViewRepresentable {
+struct CarParkMapView: UIViewRepresentable {
     var coordinate: CLLocationCoordinate2D
 
     func makeUIView(context: Context) -> MKMapView {
@@ -34,8 +34,8 @@ struct HistoryMapView: UIViewRepresentable {
     }
 }
 
-struct HistoryMapView_Previews: PreviewProvider {
+struct CarParkMapView_Previews: PreviewProvider {
     static var previews: some View {
-        HistoryMapView(coordinate: historyData[0].locationCoordinate)
+        CarParkMapView(coordinate: carParksData[0].locationCoordinate)
     }
 }

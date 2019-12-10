@@ -17,15 +17,15 @@ struct NavView: View {
         //Set defualts of UINavigationBar
         UINavigationBar.appearance().shadowImage = UIImage()
         UINavigationBar.appearance().isTranslucent = true
-        UINavigationBar.appearance().backgroundColor = Colours.green
-        UINavigationBar.appearance().barTintColor = Colours.green
+        UINavigationBar.appearance().backgroundColor = Colours.red
+        UINavigationBar.appearance().barTintColor = Colours.red
         UINavigationBar.appearance().titleTextAttributes = [.foregroundColor: UIColor.white]
         UINavigationBar.appearance().largeTitleTextAttributes = [.foregroundColor: UIColor.white]
         //Set defaults of UITabBar
         UITabBar.appearance().shadowImage = UIImage()
         UITabBar.appearance().backgroundImage = UIImage()
         UITabBar.appearance().isTranslucent = true
-        UITabBar.appearance().backgroundColor = Colours.green
+        UITabBar.appearance().backgroundColor = Colours.red
         UITabBar.appearance().unselectedItemTintColor = Colours.lightGrey
     }
     
@@ -55,14 +55,6 @@ struct NavView: View {
                     }
                 }
                 .tag(2)
-            HistoryView()
-                .tabItem {
-                    VStack {
-                        Image(systemName: "clock")
-                        Text("History")
-                    }
-                }
-                .tag(3)
             AccountView()
                 .tabItem {
                     VStack {
@@ -70,7 +62,7 @@ struct NavView: View {
                         Text("Account")
                     }
                 }
-                .tag(4)
+                .tag(3)
         }
         .accentColor(.white)
         .edgesIgnoringSafeArea(.top)

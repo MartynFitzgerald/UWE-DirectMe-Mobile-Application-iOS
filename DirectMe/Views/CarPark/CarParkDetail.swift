@@ -13,7 +13,7 @@ struct CarParkDetail: View {
     
     var body: some View {
         VStack {
-            HistoryMapView(coordinate: carPark.locationCoordinate)
+            CarParkMapView(coordinate: carPark.locationCoordinate)
                 .frame(height: 200)
             Form {
                 Section(header: Text("About This Car Park")) {
@@ -51,6 +51,6 @@ struct CarParkDetail: View {
 
 struct CarParkDetail_Preview: PreviewProvider {
     static var previews: some View {
-        HistoryDetail(history: historyData[0])
+        CarParkDetail(carPark: carParksData[0])
     }
 }

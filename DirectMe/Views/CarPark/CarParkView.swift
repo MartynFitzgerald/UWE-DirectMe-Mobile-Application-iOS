@@ -18,19 +18,6 @@ struct CarParkView: View {
                 }
             }
             .navigationBarTitle(Text("Car Parks"), displayMode: .inline)
-            .navigationBarItems(leading:
-                Button(action: {
-                    signOut()
-                }, label: {
-                    HStack{
-                        Image(systemName: "square.and.arrow.up")
-                        .resizable()
-                        .frame(width: 20.0, height: 20.0, alignment: .center)
-                        .rotationEffect(.degrees(-90))
-                        Text("Sign Out")
-                    }
-                })
-            )
         }
     }
 }
