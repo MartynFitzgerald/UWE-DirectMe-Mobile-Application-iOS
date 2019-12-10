@@ -7,16 +7,18 @@
 //
 
 import SwiftUI
+import Combine
 
 struct AccountView: View {
     @State private var selectedMode = 0
-    @State private var id = UserDefaults.standard.integer(forKey: "id")
     @State private var firstName = UserDefaults.standard.string(forKey: "firstName")!
     @State private var lastName = UserDefaults.standard.string(forKey: "lastName")!
     @State private var email = UserDefaults.standard.string(forKey: "email")!
     @State private var selectedProfilePicture = UserDefaults.standard.integer(forKey: "profilePicture")
-    @State private var enableDarkMode = UserDefaults.standard.bool(forKey: "isDarkMode")
+    //@State private var isDarkMode = UserDefaults.standard.bool(forKey: "isDarkMode")
     @State private var sliderValue = UserDefaults.standard.double(forKey: "radius")
+    
+    @ObservedObject var userDefaultManager = UserDefaultsManager()
     
     var notificationMode = ["Lock Screen", "Notification Centre", "Banners"]
     var profilePictures = ["male1", "male2", "male3", "male4", "male5", "male6", "male7", "female1", "female2"]
@@ -38,63 +40,64 @@ struct AccountView: View {
                 .frame(minWidth: 0, maxWidth: .infinity, minHeight: 0, maxHeight: 300)
                 .background(Color.blue)
                 .foregroundColor(Color.white)
-                    Form {
-                        Section(header: Text("General Settings")){
-                            Toggle(isOn: $enableDarkMode) {
-                                Text("Dark Mode")
-                            }
-                            VStack(alignment: .leading) {
-                                Text("Radius")
-                                HStack {
-                                   Text("\(Int(sliderValue))")
-                                   Slider(value: $sliderValue, in: minimumValue...maximumvalue)
-                                   Text("\(Int(maximumvalue))")
-                                }
-                           }
-                            
+                Form {
+                    Section(header: Text("General Settings")){
+                        Toggle(isOn: self.$userDefaultManager.isDarkMode) {
+                            Text("Dark Mode")
                         }
-                        Section(header: Text("Privacy")){
-                            /*Picker(selection: $selectedMode, label: Text("Notifications")) {
-                                ForEach(0..<notificationMode.count) {
-                                    Text(self.notificationMode[$0])
-                                }
-                            }*/
-                            Picker(selection: $selectedMode, label: Text("Location")) {
-                                ForEach(0..<notificationMode.count) {
-                                    Text(self.notificationMode[$0])
-                                }
+                        VStack(alignment: .leading) {
+                            Text("Radius")
+                            HStack {
+                               Text("\(Int(sliderValue))")
+                               Slider(value: $sliderValue, in: minimumValue...maximumvalue)
+                               Text("\(Int(maximumvalue))")
                             }
-                        }
+                            .accentColor(Color.blue)
+                       }
                         
-                        Section(header: Text("About")) {
-                            HStack {
-                                Text("First Name")
-                                Spacer()
-                                Text("\(firstName)")
+                    }
+                    Section(header: Text("Privacy")){
+                        /*Picker(selection: $selectedMode, label: Text("Notifications")) {
+                            ForEach(0..<notificationMode.count) {
+                                Text(self.notificationMode[$0])
                             }
-                            HStack {
-                                Text("Last Name")
-                                Spacer()
-                                Text("\(lastName)")
+                        }*/
+                        Picker(selection: $selectedMode, label: Text("Location")) {
+                            ForEach(0..<notificationMode.count) {
+                                Text(self.notificationMode[$0])
                             }
-                            HStack {
-                                Text("Email")
-                                Spacer()
-                                Text("\(email)")
-                            }
-                            Picker(selection: $selectedProfilePicture, label: Text("Profile Pictures")) {
-                                ForEach (0..<profilePictures.count){
-                                    Text(self.profilePictures[$0])
-                                    //AccountProfilePicture(name: self.profilePictures[$0])
-                                    Image(self.profilePictures[$0])
-                                        .resizable()
-                                        .frame(width: 128.0, height: 128.0)
-                                        .shadow(radius: 10)
-                                }
+                        }
+                    }
+                    
+                    Section(header: Text("About")) {
+                        HStack {
+                            Text("First Name")
+                            Spacer()
+                            Text("\(firstName)")
+                        }
+                        HStack {
+                            Text("Last Name")
+                            Spacer()
+                            Text("\(lastName)")
+                        }
+                        HStack {
+                            Text("Email")
+                            Spacer()
+                            Text("\(email)")
+                        }
+                        Picker(selection: $selectedProfilePicture, label: Text("Profile Pictures")) {
+                            ForEach (0..<profilePictures.count){
+                                Text(self.profilePictures[$0])
+                                //AccountProfilePicture(name: self.profilePictures[$0])
+                                Image(self.profilePictures[$0])
+                                    .resizable()
+                                    .frame(width: 128.0, height: 128.0)
+                                    .shadow(radius: 10)
                             }
                         }
                     }
                 }
+            }
             .navigationBarTitle(Text("Account"), displayMode: .inline)
             .navigationBarItems(leading:
                 Button(action: {
@@ -113,7 +116,33 @@ struct AccountView: View {
     }
 }
 
+class UserDefaultsManager: ObservableObject {
+    private var id = UserDefaults.standard.integer(forKey: "id")
+    
+    @Published var isDarkMode: Bool = UserDefaults.standard.bool(forKey: "isDarkMode") {
+        didSet {
+            UserDefaults.standard.set(isDarkMode, forKey: "isDarkMode")
+            
+            //Get array of users from storage
+            let usersArray = UserDefaults.standard.object(forKey: "usersArray") as? [[String : Any]] ?? [[String : Any]]()
+            // check if there is users stored
+            if usersArray.count > 0 {
+                for var user in usersArray
+                {
+                    if user["id"] as? Int == self.id
+                    {
+                        user["isDarkMode"] = isDarkMode
+                        //print(user)
+                        //UserDefaults.standard.removeObject(forKey: "usersArray")
 
+                       // UserDefaults.standard.set(usersArray, forKey: "usersArray")
+                    }
+                }
+            }
+            
+        }
+    }
+}
 
 struct AccountView_Previews: PreviewProvider {
     static var previews: some View {
