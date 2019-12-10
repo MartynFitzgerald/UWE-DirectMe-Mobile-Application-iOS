@@ -11,7 +11,7 @@
 		5A15F277239992AF0028CBBB /* Pacifico.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 5A15F276239992AF0028CBBB /* Pacifico.ttf */; };
 		5A366769237DEBF600C494D9 /* AccountView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A366768237DEBF600C494D9 /* AccountView.swift */; };
 		5A366776237DFC6D00C494D9 /* CarParkMapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A366775237DFC6D00C494D9 /* CarParkMapView.swift */; };
-		5A3C7B9A237E111800782098 /* DataController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A3C7B99237E111800782098 /* DataController.swift */; };
+		5A3C7B9A237E111800782098 /* GlobalFunctions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A3C7B99237E111800782098 /* GlobalFunctions.swift */; };
 		5A546616239FF89C00F28449 /* LogoRed.png in Resources */ = {isa = PBXBuildFile; fileRef = 5A546615239FF89B00F28449 /* LogoRed.png */; };
 		5A565B77237B15D9008DB7EB /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A565B76237B15D9008DB7EB /* AppDelegate.swift */; };
 		5A565B79237B15D9008DB7EB /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A565B78237B15D9008DB7EB /* SceneDelegate.swift */; };
@@ -47,7 +47,7 @@
 		5A15F276239992AF0028CBBB /* Pacifico.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = Pacifico.ttf; sourceTree = "<group>"; };
 		5A366768237DEBF600C494D9 /* AccountView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountView.swift; sourceTree = "<group>"; };
 		5A366775237DFC6D00C494D9 /* CarParkMapView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CarParkMapView.swift; sourceTree = "<group>"; };
-		5A3C7B99237E111800782098 /* DataController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataController.swift; sourceTree = "<group>"; };
+		5A3C7B99237E111800782098 /* GlobalFunctions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GlobalFunctions.swift; sourceTree = "<group>"; };
 		5A546615239FF89B00F28449 /* LogoRed.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = LogoRed.png; sourceTree = "<group>"; };
 		5A565B73237B15D9008DB7EB /* DirectMe.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DirectMe.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		5A565B76237B15D9008DB7EB /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -153,7 +153,7 @@
 			children = (
 				5A565B78237B15D9008DB7EB /* SceneDelegate.swift */,
 				5A565B76237B15D9008DB7EB /* AppDelegate.swift */,
-				5A3C7B99237E111800782098 /* DataController.swift */,
+				5A3C7B99237E111800782098 /* GlobalFunctions.swift */,
 				5A565B7A237B15D9008DB7EB /* LoginController.swift */,
 				5AB47CA323914C5D00C469E7 /* RegisterController.swift */,
 			);
@@ -322,7 +322,7 @@
 				5AB47C942384099300C469E7 /* InformationView.swift in Sources */,
 				5AB47CBE23947FEF00C469E7 /* AccountProfilePicture.swift in Sources */,
 				5A565BA0237C708E008DB7EB /* NavView.swift in Sources */,
-				5A3C7B9A237E111800782098 /* DataController.swift in Sources */,
+				5A3C7B9A237E111800782098 /* GlobalFunctions.swift in Sources */,
 				5A15F274239972B40028CBBB /* Theme.swift in Sources */,
 				5AB47C9723843AAA00C469E7 /* CarParkView.swift in Sources */,
 				5A565B79237B15D9008DB7EB /* SceneDelegate.swift in Sources */,

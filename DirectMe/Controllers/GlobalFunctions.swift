@@ -1,9 +1,9 @@
 //
-//  Data.swift
+//  GlobalFunctions.swift
 //  DirectMe
 //
-//  Created by Apple.
-//  Copyright © 2019 Apple. All rights reserved.
+//  Created by martyn on 28/11/2019.
+//  Copyright © 2019 martyn.fitzgerald. All rights reserved.
 //
 
 import UIKit

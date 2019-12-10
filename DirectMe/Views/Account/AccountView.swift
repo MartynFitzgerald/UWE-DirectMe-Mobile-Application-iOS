@@ -29,19 +29,19 @@ struct AccountView: View {
     var body: some View {
         NavigationView {
             VStack {
-                VStack(alignment: .center) {
-                    AccountProfilePicture(image: profilePictures[selectedProfilePicture])
-                        .offset(y: -30)
-                      .padding(.bottom, -30)
-                    Text("\(firstName) \(lastName)")
-                        .font(.title)
-                    Text("\(email)")
-                        .font(.subheadline)
-                }
-                .frame(minWidth: 0, maxWidth: .infinity, minHeight: 0, maxHeight: 300)
-                .background(Color.blue)
-                .foregroundColor(Color.white)
                 Form {
+                    VStack(alignment: .center) {
+                        AccountProfilePicture(image: profilePictures[selectedProfilePicture])
+                            .offset(y: -30)
+                          .padding(.bottom, -30)
+                        Text("\(firstName) \(lastName)")
+                            .font(.title)
+                        Text("\(email)")
+                            .font(.subheadline)
+                    }
+                    .frame(minWidth: 0, maxWidth: .infinity, minHeight: 250, maxHeight: 400)
+                    .background(Color.blue)
+                    .foregroundColor(Color.white)
                     Section(header: Text("General Settings")){
                         Toggle(isOn: self.$userDefaultManager.isDarkMode) {
                             Text("Dark Mode")
@@ -69,7 +69,6 @@ struct AccountView: View {
                             }
                         }
                     }
-                    
                     Section(header: Text("About")) {
                         HStack {
                             Text("First Name")
