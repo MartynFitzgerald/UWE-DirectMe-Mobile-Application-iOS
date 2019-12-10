@@ -9,7 +9,7 @@
 import SwiftUI
 
 struct CarParkRow: View {
-    var carPark: CarParks
+    var carPark: CarPark
     
     var body: some View {
         HStack{

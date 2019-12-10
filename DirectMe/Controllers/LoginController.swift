@@ -67,7 +67,13 @@ class LoginController: UIViewController {
                     if user["email"] as? String == email && user["password"] as? String == password
                     {
                         //Store this into userdefaults
-                        UserDefaults.standard.set(user, forKey: "currentUser")
+                        UserDefaults.standard.set(user["id"], forKey: "id")
+                        UserDefaults.standard.set(user["firstName"], forKey: "firstName")
+                        UserDefaults.standard.set(user["lastName"], forKey: "lastName")
+                        UserDefaults.standard.set(user["email"], forKey: "email")
+                        UserDefaults.standard.set(user["profilePicture"], forKey: "profilePicture")
+                        UserDefaults.standard.set(user["isDarkMode"], forKey: "isDarkMode")
+                        UserDefaults.standard.set(user["radius"], forKey: "radius")
                         //Create a new UIHostingController with the view as the SwiftUI NavView
                         //https://stackoverflow.com/questions/56433826/include-swiftui-views-in-existing-uikit-application
                         let viewCtrl = UIHostingController(rootView: NavView())

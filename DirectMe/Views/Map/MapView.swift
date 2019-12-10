@@ -14,6 +14,7 @@ var map = MKMapView(frame: .zero)
 struct MapView: View {
     @State var locationManager = CLLocationManager()
     @State private var location:String = ""
+    
     var body: some View {
         NavigationView {
             ZStack(alignment: .top) {
@@ -43,70 +44,6 @@ struct MapView: View {
         }
     }
 }
-struct textFieldButton: ViewModifier
-{
-    @Binding var text: String
-    @Binding var locationManager : CLLocationManager
-
-    public func body(content: Content) -> some View
-    {
-        ZStack(alignment: .trailing)
-        {
-            content
-            HStack{
-            if !text.isEmpty
-            {
-                Button(action:
-                {
-                    self.text = ""
-                })
-                {
-                    Image(systemName: "xmark.circle.fill")
-                        .foregroundColor(Color(UIColor.opaqueSeparator))
-                }
-                .padding(.trailing, 15)
-            }
-            Button(action:
-            {
-                if self.text.contains(",")
-                {
-                    let arrayCoordinates = self.text.components(separatedBy: ",")
-                    
-                    let locationLatitude = Double(arrayCoordinates[0]) ?? 0
-                    let locationLongitude = Double(arrayCoordinates[1]) ?? 0
-                    createSearchAnnotation (latitude: locationLatitude, longitude: locationLongitude)
-                    
-                    //get the best location
-                }
-                else
-                {
-                    //search for long and lat
-                    let searchRequest = MKLocalSearch.Request()
-                    searchRequest.naturalLanguageQuery = self.text
-                    let search = MKLocalSearch(request: searchRequest)
-                    
-                    search.start{ response, error in guard let response = response else {
-                        print ("Error: \(error?.localizedDescription ?? "unknown error").")
-                        return
-                        
-                        }
-                        let locationLatitude = Double(round(1000*response.boundingRegion.center.latitude) / 1000)
-                        let locationLongitude = Double(round(1000*response.boundingRegion.center.longitude) / 1000)
-                        createSearchAnnotation (latitude: locationLatitude, longitude: locationLongitude)
-                        
-                    }
-                }
-            })
-            {
-                Image(systemName: "magnifyingglass")
-                    .foregroundColor(Color(UIColor.red))
-            }
-            .padding(.trailing, 35)
-            
-            }
-        }
-    }
-}
 
 struct MainMapView: UIViewRepresentable {
     @Binding var locationManager : CLLocationManager
@@ -131,7 +68,12 @@ struct MainMapView: UIViewRepresentable {
     }
 
     func updateUIView(_ view: MKMapView, context: Context) {
-        
+    }
+    
+    func MainMapView(_ mapView: MKMapView, rendererFor overlay: MKOverlay) -> MKOverlayRenderer {
+        let renderer = MKPolylineRenderer(polyline: overlay as! MKPolyline)
+        renderer.strokeColor = UIColor.blue
+        return renderer
     }
     
     class Coordinator : NSObject, CLLocationManagerDelegate{
@@ -172,23 +114,111 @@ struct MainMapView: UIViewRepresentable {
     }
 }
 
-func createSearchAnnotation (latitude: Double, longitude: Double)
-{
-    let coordinate = CLLocationCoordinate2DMake(latitude, longitude)
-    let point = MKPointAnnotation()
-    //Setting attibutes of MKPointAnnotation
-    point.title = "Searching"
-    point.subtitle = "Car Parks Around Here"
-    point.coordinate = coordinate
-    //Custom View for Annotation
-    let annotationView = MKAnnotationView(annotation: point, reuseIdentifier: "customView")
-    //Your custom image icon
-    annotationView.image = UIImage(named: "circle")
-    let region = MKCoordinateRegion(center: coordinate, latitudinalMeters: 2500, longitudinalMeters: 2500)
+struct textFieldButton: ViewModifier {
+    @Binding var text: String
+    @Binding var locationManager : CLLocationManager
     
-    //self.parent.map.removeAnnotations(self.parent.map.annotations)
-    map.addAnnotation(point)
-    map.region = region
+    public func body(content: Content) -> some View{
+        ZStack(alignment: .trailing)
+        {
+            content
+            HStack{
+            if !text.isEmpty
+            {
+                Button(action:
+                {
+                    self.text = ""
+                })
+                {
+                    Image(systemName: "xmark.circle.fill")
+                        .foregroundColor(Color(UIColor.opaqueSeparator))
+                }
+                .padding(.trailing, 15)
+            }
+            Button(action:
+            {
+                if self.text.contains(",")
+                {
+                    let arrayCoordinates = self.text.components(separatedBy: ",")
+                    
+                    let locationLatitude = Double(arrayCoordinates[0]) ?? 0
+                    let locationLongitude = Double(arrayCoordinates[1]) ?? 0
+                     
+                    let coordinateDestination = CLLocationCoordinate2D(latitude: CLLocationDegrees(exactly: locationLatitude)!, longitude: CLLocationDegrees(exactly: locationLongitude)!)
+                    
+                    createRoute(coordinateSelf: self.locationManager.location!.coordinate, coordinateDestination: coordinateDestination)
+                }
+                else
+                {
+                    //search for long and lat
+                    let searchRequest = MKLocalSearch.Request()
+                    searchRequest.naturalLanguageQuery = self.text
+                    let search = MKLocalSearch(request: searchRequest)
+                    
+                    search.start{ response, error in guard let response = response else {
+                        print ("Error: \(error?.localizedDescription ?? "unknown error").")
+                        return
+                        
+                        }
+                        let locationLatitude = Double(round(1000*response.boundingRegion.center.latitude) / 1000)
+                        let locationLongitude = Double(round(1000*response.boundingRegion.center.longitude) / 1000)
+
+                        let coordinateDestination = CLLocationCoordinate2D(latitude: CLLocationDegrees(exactly: locationLatitude)!, longitude: CLLocationDegrees(exactly: locationLongitude)!)
+                        
+                        createRoute(coordinateSelf: self.locationManager.location!.coordinate, coordinateDestination: coordinateDestination)
+                    }
+                }
+            })
+            {
+                Image(systemName: "magnifyingglass")
+                    .foregroundColor(Color(UIColor.red))
+            }
+            .padding(.trailing, 35)
+            
+            }
+        }
+    }
+}
+
+func createRoute (coordinateSelf: CLLocationCoordinate2D, coordinateDestination: CLLocationCoordinate2D) {
+    
+    let radius: Double = UserDefaults.standard.object(forKey: "radius") as! Double
+    
+    for carPark in carParksData {
+        let distance = carPark.getDistance(searchLocationCoordinate: coordinateDestination)
+        
+        if distance <= radius as! Double {
+            print(distance)
+        }
+    }
+    
+    
+    let request = MKDirections.Request()
+    request.source = MKMapItem(placemark: MKPlacemark(coordinate: coordinateSelf, addressDictionary: nil))
+    request.destination = MKMapItem(placemark: MKPlacemark(coordinate: coordinateDestination, addressDictionary: nil))
+    request.requestsAlternateRoutes = true
+    request.transportType = .automobile
+    
+    //Adding map annotation of the destination
+    let destinationAnnotation = MKPointAnnotation()
+    if let location = request.destination {
+        destinationAnnotation.coordinate = location.placemark.coordinate
+    }
+    map.removeAnnotations(map.annotations)
+    map.showAnnotations([destinationAnnotation], animated: true )
+    
+    let directions = MKDirections(request: request)
+
+    directions.calculate {response, error in
+        guard let unwrappedResponse = response else { return }
+
+        if (unwrappedResponse.routes.count > 0) {
+            for route in unwrappedResponse.routes {
+                map.addOverlay(route.polyline)
+                map.setVisibleMapRect(route.polyline.boundingMapRect, animated: true)
+            }
+        }
+    }
 }
 
 

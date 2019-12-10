@@ -10,7 +10,7 @@ import UIKit
 import SwiftUI
 
 let historyData: [History] = load("historyData.json")
-let carParksData: [CarParks] = load("carParksData.json")
+let carParksData: [CarPark] = load("carParksData.json")
 
 func load<T: Decodable>(_ filename: String) -> T {
     let data: Data
@@ -69,7 +69,7 @@ final class ImageStore {
 //Function to sign out current user and send them back to the original login view
 func signOut() {
     //Remove current user in user defaults
-    UserDefaults.standard.removeObject(forKey: "currentUser")
+    //UserDefaults.standard.removeObject(forKey: "currentUser")
     //Sending user back to the login page
     //let viewCtrl = UIHostingController(rootView:Main())
     //addChild(viewCtrl)

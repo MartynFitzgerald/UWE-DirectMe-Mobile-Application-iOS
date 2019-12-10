@@ -41,7 +41,7 @@
 		5AB47CCE239572F300C469E7 /* male1.png in Resources */ = {isa = PBXBuildFile; fileRef = 5AB47CC5239572F300C469E7 /* male1.png */; };
 		5AB47CCF239572F300C469E7 /* male6.png in Resources */ = {isa = PBXBuildFile; fileRef = 5AB47CC6239572F300C469E7 /* male6.png */; };
 		5AB47CD0239572F300C469E7 /* female2.png in Resources */ = {isa = PBXBuildFile; fileRef = 5AB47CC7239572F300C469E7 /* female2.png */; };
-		5AC7C475239C43FF0057A55F /* CarParks.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AC7C474239C43FF0057A55F /* CarParks.swift */; };
+		5AC7C475239C43FF0057A55F /* CarPark.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AC7C474239C43FF0057A55F /* CarPark.swift */; };
 		5AC7C477239C48A00057A55F /* CarParkRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AC7C476239C48A00057A55F /* CarParkRow.swift */; };
 		5AC7C479239C498A0057A55F /* CarParkDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AC7C478239C498A0057A55F /* CarParkDetail.swift */; };
 		5AC7C47B239C4DC80057A55F /* carParksData.json in Resources */ = {isa = PBXBuildFile; fileRef = 5AC7C47A239C4DC80057A55F /* carParksData.json */; };
@@ -84,7 +84,7 @@
 		5AB47CC5239572F300C469E7 /* male1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = male1.png; sourceTree = "<group>"; };
 		5AB47CC6239572F300C469E7 /* male6.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = male6.png; sourceTree = "<group>"; };
 		5AB47CC7239572F300C469E7 /* female2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = female2.png; sourceTree = "<group>"; };
-		5AC7C474239C43FF0057A55F /* CarParks.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CarParks.swift; sourceTree = "<group>"; };
+		5AC7C474239C43FF0057A55F /* CarPark.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CarPark.swift; sourceTree = "<group>"; };
 		5AC7C476239C48A00057A55F /* CarParkRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CarParkRow.swift; sourceTree = "<group>"; };
 		5AC7C478239C498A0057A55F /* CarParkDetail.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CarParkDetail.swift; sourceTree = "<group>"; };
 		5AC7C47A239C4DC80057A55F /* carParksData.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = carParksData.json; sourceTree = "<group>"; };
@@ -112,10 +112,10 @@
 		5A36676E237DF05400C494D9 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
-				5AC7C47A239C4DC80057A55F /* carParksData.json */,
 				5A15F275239992970028CBBB /* Fonts */,
 				5AB47CAA23941DB600C469E7 /* Avatars Icons */,
 				5AB47C9C238D8EC600C469E7 /* Logo.png */,
+				5AC7C47A239C4DC80057A55F /* carParksData.json */,
 				5A36676F237DF09400C494D9 /* historyData.json */,
 			);
 			path = Resources;
@@ -190,9 +190,9 @@
 				5AB47C912384092400C469E7 /* Account */,
 				5A3C7BCF237F35FC00782098 /* Map */,
 				5A3C7BCE237E13E900782098 /* History */,
-				5A565B9F237C708E008DB7EB /* NavView.swift */,
 				5A565B99237B193C008DB7EB /* Main.storyboard */,
 				5A565B81237B15DB008DB7EB /* LaunchScreen.storyboard */,
+				5A565B9F237C708E008DB7EB /* NavView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -200,7 +200,7 @@
 		5A565B90237B17F3008DB7EB /* Models */ = {
 			isa = PBXGroup;
 			children = (
-				5AC7C474239C43FF0057A55F /* CarParks.swift */,
+				5AC7C474239C43FF0057A55F /* CarPark.swift */,
 				5A36676C237DEF9900C494D9 /* History.swift */,
 				5AB47C9E239089BD00C469E7 /* User.swift */,
 				5A15F273239972B40028CBBB /* Theme.swift */,
@@ -335,7 +335,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				5AC7C475239C43FF0057A55F /* CarParks.swift in Sources */,
+				5AC7C475239C43FF0057A55F /* CarPark.swift in Sources */,
 				5A36676D237DEF9900C494D9 /* History.swift in Sources */,
 				5A565B7B237B15D9008DB7EB /* LoginController.swift in Sources */,
 				5A366767237DEAFC00C494D9 /* HistoryView.swift in Sources */,
