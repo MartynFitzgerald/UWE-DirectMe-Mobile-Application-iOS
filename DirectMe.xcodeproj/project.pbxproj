@@ -10,8 +10,6 @@
 		5A15F274239972B40028CBBB /* Theme.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A15F273239972B40028CBBB /* Theme.swift */; };
 		5A15F277239992AF0028CBBB /* Pacifico.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 5A15F276239992AF0028CBBB /* Pacifico.ttf */; };
 		5A366769237DEBF600C494D9 /* AccountView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A366768237DEBF600C494D9 /* AccountView.swift */; };
-		5A36676D237DEF9900C494D9 /* History.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A36676C237DEF9900C494D9 /* History.swift */; };
-		5A366770237DF09400C494D9 /* historyData.json in Resources */ = {isa = PBXBuildFile; fileRef = 5A36676F237DF09400C494D9 /* historyData.json */; };
 		5A366776237DFC6D00C494D9 /* CarParkMapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A366775237DFC6D00C494D9 /* CarParkMapView.swift */; };
 		5A3C7B9A237E111800782098 /* DataController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A3C7B99237E111800782098 /* DataController.swift */; };
 		5A546616239FF89C00F28449 /* LogoRed.png in Resources */ = {isa = PBXBuildFile; fileRef = 5A546615239FF89B00F28449 /* LogoRed.png */; };
@@ -48,8 +46,6 @@
 		5A15F273239972B40028CBBB /* Theme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Theme.swift; sourceTree = "<group>"; };
 		5A15F276239992AF0028CBBB /* Pacifico.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = Pacifico.ttf; sourceTree = "<group>"; };
 		5A366768237DEBF600C494D9 /* AccountView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountView.swift; sourceTree = "<group>"; };
-		5A36676C237DEF9900C494D9 /* History.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = History.swift; sourceTree = "<group>"; };
-		5A36676F237DF09400C494D9 /* historyData.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = historyData.json; sourceTree = "<group>"; };
 		5A366775237DFC6D00C494D9 /* CarParkMapView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CarParkMapView.swift; sourceTree = "<group>"; };
 		5A3C7B99237E111800782098 /* DataController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataController.swift; sourceTree = "<group>"; };
 		5A546615239FF89B00F28449 /* LogoRed.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = LogoRed.png; sourceTree = "<group>"; };
@@ -111,7 +107,6 @@
 				5AB47C9C238D8EC600C469E7 /* Logo.png */,
 				5A546615239FF89B00F28449 /* LogoRed.png */,
 				5AC7C47A239C4DC80057A55F /* carParksData.json */,
-				5A36676F237DF09400C494D9 /* historyData.json */,
 			);
 			path = Resources;
 			sourceTree = "<group>";
@@ -183,7 +178,6 @@
 			isa = PBXGroup;
 			children = (
 				5AC7C474239C43FF0057A55F /* CarPark.swift */,
-				5A36676C237DEF9900C494D9 /* History.swift */,
 				5AB47C9E239089BD00C469E7 /* User.swift */,
 				5A15F273239972B40028CBBB /* Theme.swift */,
 			);
@@ -294,7 +288,6 @@
 			files = (
 				5AB47CC9239572F300C469E7 /* male2.png in Resources */,
 				5AB47CCB239572F300C469E7 /* female1.png in Resources */,
-				5A366770237DF09400C494D9 /* historyData.json in Resources */,
 				5AB47CCD239572F300C469E7 /* male5.png in Resources */,
 				5A565B83237B15DB008DB7EB /* LaunchScreen.storyboard in Resources */,
 				5AB47CCF239572F300C469E7 /* male6.png in Resources */,
@@ -320,7 +313,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				5AC7C475239C43FF0057A55F /* CarPark.swift in Sources */,
-				5A36676D237DEF9900C494D9 /* History.swift in Sources */,
 				5A565B7B237B15D9008DB7EB /* LoginController.swift in Sources */,
 				5A565B77237B15D9008DB7EB /* AppDelegate.swift in Sources */,
 				5AB4069F237C9B4600091E3A /* MapView.swift in Sources */,

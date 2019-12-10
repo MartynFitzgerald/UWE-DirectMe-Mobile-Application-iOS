@@ -30,7 +30,7 @@ struct AccountView: View {
         NavigationView {
             VStack {
                 VStack(alignment: .center) {
-                    AccountProfilePicture(image: ImageStore.shared.image(name: "male1", imageExtension: "png"))
+                    AccountProfilePicture(image: profilePictures[selectedProfilePicture])
                         .offset(y: -30)
                       .padding(.bottom, -30)
                     Text("\(firstName) \(lastName)")
