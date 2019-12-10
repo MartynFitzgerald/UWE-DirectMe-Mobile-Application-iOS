@@ -2,12 +2,6 @@
 <Workspace
    version = "1.0">
    <FileRef
-      location = "group:/Users/martyn/Desktop/Xcode Projects/DirectMe Mobile Prototype iOS/DirectMe/Models/CarParks.swift">
-   </FileRef>
-   <FileRef
-      location = "group:/Users/martyn/Desktop/Xcode Projects/DirectMe Mobile Prototype iOS/DirectMe/Resources/CarParks.json">
-   </FileRef>
-   <FileRef
       location = "self:">
    </FileRef>
 </Workspace>

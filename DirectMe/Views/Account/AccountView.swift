@@ -14,9 +14,7 @@ struct AccountView: View {
     @State private var firstName = UserDefaults.standard.string(forKey: "firstName")!
     @State private var lastName = UserDefaults.standard.string(forKey: "lastName")!
     @State private var email = UserDefaults.standard.string(forKey: "email")!
-    @State private var selectedProfilePicture = UserDefaults.standard.integer(forKey: "profilePicture")
-    //@State private var isDarkMode = UserDefaults.standard.bool(forKey: "isDarkMode")
-    @State private var sliderValue = UserDefaults.standard.double(forKey: "radius")
+    
     
     @ObservedObject var userDefaultManager = UserDefaultsManager()
     
@@ -31,7 +29,7 @@ struct AccountView: View {
             VStack {
                 Form {
                     VStack(alignment: .center) {
-                        AccountProfilePicture(image: profilePictures[selectedProfilePicture])
+                        AccountProfilePicture(image: profilePictures[self.userDefaultManager.selectedProfilePicture])
                             .offset(y: -30)
                           .padding(.bottom, -30)
                         Text("\(firstName) \(lastName)")
@@ -45,12 +43,12 @@ struct AccountView: View {
                     Section(header: Text("General Settings")){
                         Toggle(isOn: self.$userDefaultManager.isDarkMode) {
                             Text("Dark Mode")
-                        }
+                        }.toggleStyle(DefaultToggleStyle())
                         VStack(alignment: .leading) {
                             Text("Radius")
                             HStack {
-                               Text("\(Int(sliderValue))")
-                               Slider(value: $sliderValue, in: minimumValue...maximumvalue)
+                               Text("\(Int(self.userDefaultManager.sliderRadiusValue))")
+                               Slider(value: self.$userDefaultManager.sliderRadiusValue, in: minimumValue...maximumvalue)
                                Text("\(Int(maximumvalue))")
                             }
                             .accentColor(Color.blue)
@@ -58,18 +56,14 @@ struct AccountView: View {
                         
                     }
                     Section(header: Text("Privacy")){
-                        /*Picker(selection: $selectedMode, label: Text("Notifications")) {
-                            ForEach(0..<notificationMode.count) {
-                                Text(self.notificationMode[$0])
-                            }
-                        }*/
-                        Picker(selection: $selectedMode, label: Text("Location")) {
-                            ForEach(0..<notificationMode.count) {
-                                Text(self.notificationMode[$0])
-                            }
+                        Button(action:{
+                            UIApplication.shared.open(URL(string: UIApplication.openSettingsURLString)!, options: [:], completionHandler: nil)
+                        }) {
+                            Text("Location")
+                                .foregroundColor(Color.black)
                         }
                     }
-                    Section(header: Text("About")) {
+                    Section(header: Text("User Information")) {
                         HStack {
                             Text("First Name")
                             Spacer()
@@ -85,7 +79,7 @@ struct AccountView: View {
                             Spacer()
                             Text("\(email)")
                         }
-                        Picker(selection: $selectedProfilePicture, label: Text("Profile Pictures")) {
+                        Picker(selection: self.$userDefaultManager.selectedProfilePicture, label: Text("Profile Pictures")) {
                             ForEach (0..<profilePictures.count){
                                 Text(self.profilePicturesTitles[$0])
                                 //AccountProfilePicture(name: self.profilePictures[$0])
@@ -96,6 +90,14 @@ struct AccountView: View {
                             }
                         }
                     }
+                    Section(header: Text("System")) {
+                        Button(action:{
+                            
+                        }) {
+                            Text("Sign Out")
+                                .foregroundColor(Color.red)
+                        }
+                    }
                 }
             }
             .navigationBarTitle(Text("Account"), displayMode: .inline)
@@ -104,29 +106,58 @@ struct AccountView: View {
 }
 
 class UserDefaultsManager: ObservableObject {
+    //Storing the current user's id that was stored on login
     private var id = UserDefaults.standard.integer(forKey: "id")
     
+    //Creating a varible that will change set the user defaults if the value has changed.
     @Published var isDarkMode: Bool = UserDefaults.standard.bool(forKey: "isDarkMode") {
         didSet {
+            //Get current isDarkMode value from user defaults.
             UserDefaults.standard.set(isDarkMode, forKey: "isDarkMode")
-            
-            //Get array of users from storage
-            let usersArray = UserDefaults.standard.object(forKey: "usersArray") as? [[String : Any]] ?? [[String : Any]]()
-            // check if there is users stored
-            if usersArray.count > 0 {
-                for var user in usersArray
-                {
-                    if user["id"] as? Int == self.id
-                    {
-                        user["isDarkMode"] = isDarkMode
-                        //print(user)
-                        //UserDefaults.standard.removeObject(forKey: "usersArray")
-
-                       // UserDefaults.standard.set(usersArray, forKey: "usersArray")
-                    }
-                }
-            }
-            
+            //Get array of users from storage.
+            var usersArray = UserDefaults.standard.object(forKey: "usersArray") as? [[String : Any]] ?? [[String : Any]]()
+            //Changing the value of isDarkMode to the current user.
+            usersArray[id]["isDarkMode"] = isDarkMode
+            //Creating a copy of the array stored in user defaults.
+            let usersArrayCopy = usersArray
+            //Removing old array of the users.
+            UserDefaults.standard.removeObject(forKey: "usersArray")
+            //Setting Copy Into Storage. Could be more optimal but couldn't find a good solution.
+            UserDefaults.standard.set(usersArrayCopy, forKey: "usersArray")
+        }
+    }
+    //Creating a varible that will change set the user defaults if the value has changed.
+    @Published var sliderRadiusValue: Double = UserDefaults.standard.double(forKey: "radius") {
+        didSet {
+            //Get current radius value from user defaults.
+            UserDefaults.standard.set(sliderRadiusValue, forKey: "radius")
+            //Get array of users from storage.
+            var usersArray = UserDefaults.standard.object(forKey: "usersArray") as? [[String : Any]] ?? [[String : Any]]()
+            //Changing the value of radius to the current user.
+            usersArray[id]["radius"] = sliderRadiusValue
+            //Creating a copy of the array stored in user defaults.
+            let usersArrayCopy = usersArray
+            //Removing old array of the users.
+            UserDefaults.standard.removeObject(forKey: "usersArray")
+            //Setting Copy Into Storage. Could be more optimal but couldn't find a good solution.
+            UserDefaults.standard.set(usersArrayCopy, forKey: "usersArray")
+        }
+    }
+    //Creating a varible that will change set the user defaults if the value has changed.
+    @Published var selectedProfilePicture = UserDefaults.standard.integer(forKey: "profilePicture") {
+        didSet {
+            //Get current radius value from user defaults.
+            UserDefaults.standard.set(selectedProfilePicture, forKey: "profilePicture")
+            //Get array of users from storage.
+            var usersArray = UserDefaults.standard.object(forKey: "usersArray") as? [[String : Any]] ?? [[String : Any]]()
+            //Changing the value of radius to the current user.
+            usersArray[id]["profilePicture"] = selectedProfilePicture
+            //Creating a copy of the array stored in user defaults.
+            let usersArrayCopy = usersArray
+            //Removing old array of the users.
+            UserDefaults.standard.removeObject(forKey: "usersArray")
+            //Setting Copy Into Storage. Could be more optimal but couldn't find a good solution.
+            UserDefaults.standard.set(usersArrayCopy, forKey: "usersArray")
         }
     }
 }
