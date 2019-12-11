@@ -34,6 +34,8 @@ func load<T: Decodable>(_ filename: String) -> T {
 
 //Function to sign out current user and send them back to the original login view
 func signOut() {
+   // performSeque(withIdentifier: "SignOut", sender:Main())
+    
     //Remove current user in user defaults
     //UserDefaults.standard.removeObject(forKey: "currentUser")
     //Sending user back to the login page

@@ -106,7 +106,6 @@
 				5AB47CAA23941DB600C469E7 /* Avatars Icons */,
 				5AB47C9C238D8EC600C469E7 /* Logo.png */,
 				5A546615239FF89B00F28449 /* LogoRed.png */,
-				5AC7C47A239C4DC80057A55F /* carParksData.json */,
 			);
 			path = Resources;
 			sourceTree = "<group>";
@@ -180,6 +179,7 @@
 				5AC7C474239C43FF0057A55F /* CarPark.swift */,
 				5AB47C9E239089BD00C469E7 /* User.swift */,
 				5A15F273239972B40028CBBB /* Theme.swift */,
+				5AC7C47A239C4DC80057A55F /* carParksData.json */,
 			);
 			path = Models;
 			sourceTree = "<group>";

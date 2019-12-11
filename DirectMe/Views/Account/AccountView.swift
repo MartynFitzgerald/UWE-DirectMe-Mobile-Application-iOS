@@ -59,7 +59,7 @@ struct AccountView: View {
                         Button(action:{
                             UIApplication.shared.open(URL(string: UIApplication.openSettingsURLString)!, options: [:], completionHandler: nil)
                         }) {
-                            Text("Location")
+                            Text("Location Settings")
                                 .foregroundColor(Color.black)
                         }
                     }
@@ -78,6 +78,7 @@ struct AccountView: View {
                             Text("Email")
                             Spacer()
                             Text("\(email)")
+                            .font(.footnote)
                         }
                         Picker(selection: self.$userDefaultManager.selectedProfilePicture, label: Text("Profile Pictures")) {
                             ForEach (0..<profilePictures.count){
@@ -92,7 +93,7 @@ struct AccountView: View {
                     }
                     Section(header: Text("System")) {
                         Button(action:{
-                            
+                            signOut()
                         }) {
                             Text("Sign Out")
                                 .foregroundColor(Color.red)
