@@ -201,34 +201,6 @@ func createPin(coordinateSelf: CLLocationCoordinate2D, coordinateDestination: CL
 
         }
     }
-    
-    
-    /*let request = MKDirections.Request()
-    request.source = MKMapItem(placemark: MKPlacemark(coordinate: coordinateSelf, addressDictionary: nil))
-    request.destination = MKMapItem(placemark: MKPlacemark(coordinate: coordinateDestination, addressDictionary: nil))
-    request.requestsAlternateRoutes = true
-    request.transportType = .automobile
-    
-    //Adding map annotation of the destination
-    let destinationAnnotation = MKPointAnnotation()
-    if let location = request.destination {
-        destinationAnnotation.coordinate = location.placemark.coordinate
-    }
-    map.removeAnnotations(map.annotations)
-    map.showAnnotations([destinationAnnotation], animated: true )
-    
-    let directions = MKDirections(request: request)
-
-    directions.calculate {response, error in
-        guard let unwrappedResponse = response else { return }
-
-        if (unwrappedResponse.routes.count > 0) {
-            for route in unwrappedResponse.routes {
-                map.addOverlay(route.polyline)
-                map.setVisibleMapRect(route.polyline.boundingMapRect, animated: true)
-            }
-        }
-    }*/
 }
 
 
