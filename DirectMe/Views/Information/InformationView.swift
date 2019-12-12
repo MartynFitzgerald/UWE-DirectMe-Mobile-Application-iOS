@@ -50,7 +50,7 @@ struct InformationView: View {
                     HStack {
                         Text("Software Version:")
                         Spacer()
-                        Text("0.37.5")
+                        Text("0.46.5")
                         .font(.body)
                     }
                 }
