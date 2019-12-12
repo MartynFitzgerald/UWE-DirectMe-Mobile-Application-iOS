@@ -9,12 +9,15 @@
 import SwiftUI
 
 struct CarParkDetail: View {
+    //Ask for carPark in parameters
     var carPark: CarPark
     
     var body: some View {
         VStack {
+            //Create map view of the location
             CarParkMapView(coordinate: carPark.locationCoordinate)
                 .frame(height: 200)
+            //Sections of information about the car park 
             Form {
                 Section(header: Text("About This Car Park")) {
                     HStack {

@@ -10,7 +10,7 @@
 import SwiftUI
 
 struct NavView: View {
-    
+    //Set view onto the map view first.
     @State private var selection = 2
     
     init () {
@@ -26,7 +26,7 @@ struct NavView: View {
         UITabBar.appearance().backgroundImage = UIImage()
         UITabBar.appearance().isTranslucent = true
         UITabBar.appearance().backgroundColor = Colours.red
-        UITabBar.appearance().unselectedItemTintColor = .systemGray
+        UITabBar.appearance().unselectedItemTintColor = .systemGray5
     }
     
     var body: some View {

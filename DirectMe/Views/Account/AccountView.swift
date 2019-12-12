@@ -10,14 +10,13 @@ import SwiftUI
 import Combine
 
 struct AccountView: View {
-    @State private var selectedMode = 0
+    //Get values from user defualts
     @State private var firstName = UserDefaults.standard.string(forKey: "firstName")!
     @State private var lastName = UserDefaults.standard.string(forKey: "lastName")!
     @State private var email = UserDefaults.standard.string(forKey: "email")!
-    
-    
+    //Set object where the user defaults are stored
     @ObservedObject var userDefaultManager = UserDefaultsManager()
-    
+    //Set default values
     var notificationMode = ["Lock Screen", "Notification Centre", "Banners"]
     var profilePictures = ["male1", "male2", "male3", "male4", "male5", "male6", "male7", "female1", "female2"]
     var profilePicturesTitles = ["Male 1", "Male 2", "Male 3", "Male 4", "Male 5", "Male 6", "Male 7", "Female 1", "Female 2"]
@@ -104,11 +103,10 @@ struct AccountView: View {
         }
     }
 }
-
+//Class to store user defauts as varibles that are changable.
 class UserDefaultsManager: ObservableObject {
     //Storing the current user's id that was stored on login
     private var id = UserDefaults.standard.integer(forKey: "id")
-    
     //Creating a varible that will change set the user defaults if the value has changed.
     @Published var isDarkMode: Bool = UserDefaults.standard.bool(forKey: "isDarkMode") {
         didSet {

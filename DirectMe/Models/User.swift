@@ -6,9 +6,7 @@
 //  Copyright © 2019 martyn.fitzgerald. All rights reserved.
 //
 
-import SwiftUI
-import CoreLocation
-
+//This model is to create a object to hold one user.
 struct User: Hashable, Codable, Identifiable {
     var id: Int
     var firstName: String

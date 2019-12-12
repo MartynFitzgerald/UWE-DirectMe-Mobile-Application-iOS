@@ -22,15 +22,17 @@ class LoginController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        //Set gradient of storyborad background
+        //Set gradient of storyborad background.
         view.setGradientBackground(colorOne: Colours.orange, colorTwo: Colours.red)
+        //Making buttons have a rounded corner.
         loginButton.layer.cornerRadius = 25.0
         registerButton.layer.cornerRadius = 25.0
+        
         //Check if isDarkMode in user defaults is set to true.
         if UserDefaults.standard.bool(forKey: "isDarkMode") == true {
-            //Set dark mode
+            //Set dark mode.
             overrideUserInterfaceStyle = .dark
-            //Set buttons colours programmatically
+            //Set buttons colours programmatically.
             loginButton.backgroundColor = .black
             loginButton.setTitleColor(.white, for: UIControl.State.normal)
             registerButton.backgroundColor = .black
@@ -39,22 +41,20 @@ class LoginController: UIViewController {
             errorTextView.textColor = .black
         }
     }
-    //Set Status bar text to white
+    //Set Status bar text to white.
     override var preferredStatusBarStyle: UIStatusBarStyle {
         return .lightContent
     }
-
-
+    //Once the loginButton is been press execute.
     @IBAction func loginButton(_ sender: Any) {
         let email:String? = (emailTextField.text ?? "").lowercased()
         let password:String? = passwordTextField.text ?? ""
-        
+        //Validated user inpute to make sure its allowed
         let isEmailValid = isValidEmail(emailStr: email!);
         let isPasswordValid = isValidPassword(passwordStr: password!);
-        
+        //Set error text to have nothing just incase if they has a error before.
         self.errorTextView.text = ""
-        
-        //Validate email and password
+        //If text fields are not valid then show error
         if isEmailValid == false && isPasswordValid == false
         {
             self.errorTextView.text = "The email and password provided are not valid, please try again."
@@ -69,18 +69,17 @@ class LoginController: UIViewController {
         }
         else
         {
-            //Get array of users from storage
+            //Get array of users from storage.
             let usersArray = defaults.object(forKey: "usersArray") as? [[String : Any]] ?? [[String : Any]]()
             var isUserValid: Bool = false
-            // check if there is users stored
+            //Check if there is users stored.
             if usersArray.count > 0 {
                 for user in usersArray
                 {
                     //Check if the user exists within the database of users.
                     if user["email"] as? String == email && user["password"] as? String == password
                     {
-                        //print(user)
-                        //Store this into userdefaults
+                        //Store this into userdefaults. Would of stored user object but found it hard to check if editted in SwiftUI.
                         UserDefaults.standard.set(user["id"], forKey: "id")
                         UserDefaults.standard.set(user["firstName"], forKey: "firstName")
                         UserDefaults.standard.set(user["lastName"], forKey: "lastName")
@@ -88,21 +87,21 @@ class LoginController: UIViewController {
                         UserDefaults.standard.set(user["profilePicture"], forKey: "profilePicture")
                         UserDefaults.standard.set(user["isDarkMode"], forKey: "isDarkMode")
                         UserDefaults.standard.set(user["radius"], forKey: "radius")
-                        //Create a new UIHostingController with the view as the SwiftUI NavView
+                        //Create a new UIHostingController with the view as the SwiftUI NavView.
                         //https://stackoverflow.com/questions/56433826/include-swiftui-views-in-existing-uikit-application
                         let viewCtrl = UIHostingController(rootView: NavView())
                         addChild(viewCtrl)
                         viewCtrl.view.frame = theContainer.bounds
                         theContainer.addSubview(viewCtrl.view)
                         viewCtrl.didMove(toParent: self)
-                        //Setting isUserValid as true
+                        //Setting isUserValid as true.
                         isUserValid = true
-                        
+                        //Breaking the loop once found the user.
                         break;
                     }
                 }
             }
-            //When the user isnt valid 
+            //If users is not in the system then display
             if !isUserValid
             {
                 self.errorTextView.text = "The detais given are not a registered account at DirectMe. Please try again "
@@ -111,12 +110,10 @@ class LoginController: UIViewController {
         
     }
 }
-
+// This expands on UIView to allow gradient backgrounds.
 //https://www.youtube.com/watch?v=3gUNg3Jhjwo
 extension UIView {
-    
     func setGradientBackground(colorOne: UIColor, colorTwo: UIColor) {
-        
         let gradientLayer = CAGradientLayer()
         gradientLayer.frame = bounds
         gradientLayer.colors = [colorOne.cgColor, colorTwo.cgColor]

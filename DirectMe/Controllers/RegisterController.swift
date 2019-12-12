@@ -8,8 +8,6 @@
 
 import UIKit
 import SwiftUI
-import CoreLocation
-import MessageUI
 
 class RegisterController: UIViewController {
     @IBOutlet weak var firstNameTextField: UITextField!
@@ -33,14 +31,15 @@ class RegisterController: UIViewController {
         navigationBar.setBackgroundImage(UIImage(), for: .default)
         navigationBar.shadowImage = UIImage()
         navigationBar.isTranslucent = true
-        //Make navigationBar font and color
+        //Set navigationBar font and color
         let attrs = [
             NSAttributedString.Key.foregroundColor: UIColor.white,
             NSAttributedString.Key.font: UIFont(name: "Pacifico", size:32)!
         ]
         navigationBar.titleTextAttributes = attrs
-        //Set button radius
+        //Making buttons have a rounded corner.
         registerButton.layer.cornerRadius = 25.0
+        
         if UserDefaults.standard.bool(forKey: "isDarkMode") == true {
             overrideUserInterfaceStyle = .dark
             //Set buttons colours programmatically
@@ -49,28 +48,34 @@ class RegisterController: UIViewController {
             //Set label colour
             errorTextView.textColor = .black
             formFillText.textColor = .black
+            //Set again if darkmode navigationBar font and color
+            let attrs = [
+                NSAttributedString.Key.foregroundColor: UIColor.black,
+                NSAttributedString.Key.font: UIFont(name: "Pacifico", size:32)!
+            ]
+            navigationBar.titleTextAttributes = attrs
         }
     }
     //Set Status bar text to white
     override var preferredStatusBarStyle: UIStatusBarStyle {
         return .lightContent
     }
-    
+    //Once the registerButton is been press execute.
     @IBAction func registerUser(_ sender: Any) {
-        self.errorTextView.text = ""
         let firstName:String? = (firstNameTextField.text ?? "").lowercased().capitalized
         let lastName:String? = (lastNameTextField.text ?? "").lowercased().capitalized
         let email:String? = (emailTextField.text ?? "").lowercased()
         let password:String? = passwordTextField.text ?? ""
         let confirmPassword:String? = confirmPasswordTextField.text ?? ""
-        
+        //Validated user inpute to make sure its allowed
         let isFirstNameValid = isValidName(nameStr: firstName!);
         let isLastNameValid = isValidName(nameStr: lastName!);
         let isEmailValid = isValidEmail(emailStr: email!);
         let isPasswordValid = isValidPassword(passwordStr: password!);
         let isConfirmPasswordValid = isValidPassword(passwordStr: confirmPassword!);
-        
-        //Validate email and password
+        //Set error text to have nothing just incase if they has a error before.
+        self.errorTextView.text = ""
+        //If text fields are not valid then show error
         if isFirstNameValid == false &&  isLastNameValid == false && isEmailValid == false && isPasswordValid == false && isConfirmPasswordValid == false
         {
             self.errorTextView.text = "The first name, last name, email, password and re-enter password provided are not valid, please try again."
@@ -93,25 +98,29 @@ class RegisterController: UIViewController {
         }
         else
         {
+            //If passwords are not the same show error
             if password != confirmPassword
             {
                 self.errorTextView.text = "The password and confirm password doesn't match."
             }
             else
             {
+                //Get array of users from storage.
                 var usersArray = defaults.object(forKey: "usersArray") as? [[String : Any]] ?? [[String : Any]]()
-                //Get array of users from storage and if not set then
+                //Check if there is users stored.
                 if usersArray.count > 0 {
                     for user in usersArray
                     {
+                        //Check if the user exists within the database of users.
                         if user["email"] as? String == email
                         {
                             self.errorTextView.text = "This email has already got an account with DirectMe."
+                            //Breaking the loop once found the user.
                             break;
                         }
                     }
                 }
-                //check if there was no error
+                //Double check that no error was displayed
                 if self.errorTextView.text == ""
                 {
                     //Get the amount of users within the system to set new id
@@ -127,7 +136,6 @@ class RegisterController: UIViewController {
                        "isDarkMode": false,
                        "radius": 5.0
                        ] as [String : Any]
-                    
                     //Empty all textfields
                     firstNameTextField.text = ""
                     lastNameTextField.text = ""
@@ -145,12 +153,12 @@ class RegisterController: UIViewController {
         }
     }
 }
-
+//Addding functions onto string to allow me to format them.
 extension String {
+    //This function sets the first letter capital
     func capitalizingFirstLetter() -> String {
         return prefix(1).capitalized + dropFirst()
     }
-
     mutating func capitalizeFirstLetter() {
         self = self.capitalizingFirstLetter()
     }

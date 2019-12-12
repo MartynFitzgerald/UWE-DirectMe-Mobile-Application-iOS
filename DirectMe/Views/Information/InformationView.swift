@@ -8,6 +8,7 @@
 
 import SwiftUI
 
+//This view is all the static information of the application.
 struct InformationView: View {
     var body: some View {
         NavigationView {

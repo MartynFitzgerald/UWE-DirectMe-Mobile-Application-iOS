@@ -8,10 +8,11 @@
 
 import SwiftUI
 
+//Create view of list of car parks.
 struct CarParkView: View {
-    
     var body: some View {
         NavigationView {
+            //Loop through carParksData to create CarParkRow each time.
             List (carParksData) { carPark in
                 NavigationLink(destination: CarParkDetail(carPark: carPark)) {
                     CarParkRow(carPark: carPark)

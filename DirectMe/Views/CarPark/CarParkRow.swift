@@ -8,9 +8,10 @@
 
 import SwiftUI
 
+//Create individual row for car park.
 struct CarParkRow: View {
+    //Get carPark from parameter.
     var carPark: CarPark
-    
     var body: some View {
         HStack{
             Image(systemName: "p.square.fill")

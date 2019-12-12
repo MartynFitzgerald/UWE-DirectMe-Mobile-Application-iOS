@@ -6,11 +6,11 @@
 //  Copyright © 2019 martyn.fitzgerald. All rights reserved.
 //
 
-import Foundation
-
 import SwiftUI
 
+//Create a profile pricture with some attributes changed.
 struct AccountProfilePicture: View {
+    //Asking for a string of what image is needed.
     var image: String
 
     var body: some View {
