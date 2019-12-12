@@ -58,6 +58,10 @@ struct MainMapView: UIViewRepresentable {
         map.showsUserLocation = true
         return map
     }
+    //Update map.
+    func updateUIView(_ uiView: MKMapView, context: UIViewRepresentableContext<MainMapView>) {
+        
+    }
     // Set colour of polylines on the map. Not used no longer, couldn't get the functionality of routes to work.
     func MainMapView(_ mapView: MKMapView, rendererFor overlay: MKOverlay) -> MKOverlayRenderer {
         let renderer = MKPolylineRenderer(polyline: overlay as! MKPolyline)
