@@ -22,7 +22,7 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" textContentType="email"/>
                             </textField>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="Logo.png" translatesAutoresizingMaskIntoConstraints="NO" id="BEM-cr-aS3">
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="Logo" translatesAutoresizingMaskIntoConstraints="NO" id="BEM-cr-aS3">
                                 <rect key="frame" x="16" y="112" width="343" height="106"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES"/>
                             </imageView>
@@ -197,7 +197,7 @@
         </scene>
     </scenes>
     <resources>
-        <image name="Logo.png" width="177.36000061035156" height="39.599998474121094"/>
+        <image name="Logo" width="739" height="165"/>
         <image name="chevron.left" catalog="system" width="48" height="64"/>
     </resources>
 </document>
