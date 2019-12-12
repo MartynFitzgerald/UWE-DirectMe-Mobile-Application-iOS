@@ -18,6 +18,7 @@ class RegisterController: UIViewController {
     @IBOutlet weak var passwordTextField: UITextField!
     @IBOutlet weak var confirmPasswordTextField: UITextField!
     @IBOutlet weak var errorTextView: UITextView!
+    @IBOutlet weak var formFillText: UILabel!
     @IBOutlet weak var navigationBar: UINavigationBar!
     @IBOutlet weak var navigationTitle: UINavigationItem!
     @IBOutlet weak var registerButton: UIButton!
@@ -40,6 +41,15 @@ class RegisterController: UIViewController {
         navigationBar.titleTextAttributes = attrs
         //Set button radius
         registerButton.layer.cornerRadius = 25.0
+        if UserDefaults.standard.bool(forKey: "isDarkMode") == true {
+            overrideUserInterfaceStyle = .dark
+            //Set buttons colours programmatically
+            registerButton.backgroundColor = .black
+            registerButton.setTitleColor(.white, for: UIControl.State.normal)
+            //Set label colour
+            errorTextView.textColor = .black
+            formFillText.textColor = .black
+        }
     }
     //Set Status bar text to white
     override var preferredStatusBarStyle: UIStatusBarStyle {

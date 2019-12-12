@@ -38,8 +38,8 @@ struct AccountView: View {
                             .font(.subheadline)
                     }
                     .frame(minWidth: 0, maxWidth: .infinity, minHeight: 250, maxHeight: 400)
-                    .background(Color.blue)
-                    .foregroundColor(Color.white)
+                    .background(Color.yellow)
+                    .foregroundColor(Color.black)
                     Section(header: Text("General Settings")){
                         Toggle(isOn: self.$userDefaultManager.isDarkMode) {
                             Text("Dark Mode")
@@ -60,7 +60,6 @@ struct AccountView: View {
                             UIApplication.shared.open(URL(string: UIApplication.openSettingsURLString)!, options: [:], completionHandler: nil)
                         }) {
                             Text("Location Settings")
-                                .foregroundColor(Color.black)
                         }
                     }
                     Section(header: Text("User Information")) {
@@ -113,6 +112,21 @@ class UserDefaultsManager: ObservableObject {
     //Creating a varible that will change set the user defaults if the value has changed.
     @Published var isDarkMode: Bool = UserDefaults.standard.bool(forKey: "isDarkMode") {
         didSet {
+            //Check if true to set dark mode as true.
+            if isDarkMode == true {
+                //Override all views in the users interface per window
+                UIApplication.shared.windows.forEach {
+                    //Set darkmode
+                    window in window.overrideUserInterfaceStyle = .dark
+                }
+            }
+            else {
+                //Override all views in the users interface per window
+                UIApplication.shared.windows.forEach {
+                    //Set darkmode
+                    window in window.overrideUserInterfaceStyle = .light
+                }
+            }
             //Get current isDarkMode value from user defaults.
             UserDefaults.standard.set(isDarkMode, forKey: "isDarkMode")
             //Get array of users from storage.

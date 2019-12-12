@@ -16,6 +16,7 @@ class LoginController: UIViewController {
     @IBOutlet weak var errorTextView: UITextView!
     @IBOutlet weak var loginButton: UIButton!
     @IBOutlet weak var registerButton: UIButton!
+    @IBOutlet var directMeImage: UIImageView!
     //Set stored variables to defaults
     let defaults = UserDefaults.standard
     
@@ -25,6 +26,18 @@ class LoginController: UIViewController {
         view.setGradientBackground(colorOne: Colours.orange, colorTwo: Colours.red)
         loginButton.layer.cornerRadius = 25.0
         registerButton.layer.cornerRadius = 25.0
+        //Check if isDarkMode in user defaults is set to true.
+        if UserDefaults.standard.bool(forKey: "isDarkMode") == true {
+            //Set dark mode
+            overrideUserInterfaceStyle = .dark
+            //Set buttons colours programmatically
+            loginButton.backgroundColor = .black
+            loginButton.setTitleColor(.white, for: UIControl.State.normal)
+            registerButton.backgroundColor = .black
+            registerButton.setTitleColor(.white, for: UIControl.State.normal)
+            //Set label colour
+            errorTextView.textColor = .black
+        }
     }
     //Set Status bar text to white
     override var preferredStatusBarStyle: UIStatusBarStyle {

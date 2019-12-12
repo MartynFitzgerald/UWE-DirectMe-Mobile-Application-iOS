@@ -69,6 +69,7 @@
                     </view>
                     <navigationItem key="navigationItem" id="pae-3g-0Dy"/>
                     <connections>
+                        <outlet property="directMeImage" destination="BEM-cr-aS3" id="aZ2-xu-XBJ"/>
                         <outlet property="emailTextField" destination="re4-8N-Zsk" id="Uj4-jo-mij"/>
                         <outlet property="errorTextView" destination="pcz-tt-I8V" id="78S-Cu-w4N"/>
                         <outlet property="loginButton" destination="dAh-Vo-wMd" id="VVx-P3-Fih"/>
@@ -184,6 +185,7 @@
                         <outlet property="emailTextField" destination="9ux-lJ-p4A" id="m8Q-4I-WYG"/>
                         <outlet property="errorTextView" destination="BXM-pb-xzy" id="LKN-Bi-Prt"/>
                         <outlet property="firstNameTextField" destination="2xJ-cf-HvX" id="ctd-LD-zSB"/>
+                        <outlet property="formFillText" destination="hct-pq-xwc" id="kMV-WA-tBb"/>
                         <outlet property="lastNameTextField" destination="uR2-tb-vTT" id="Ufw-Kc-gkL"/>
                         <outlet property="navigationBar" destination="fSQ-Ll-eLO" id="qrS-ag-Qh1"/>
                         <outlet property="navigationTitle" destination="9bQ-fN-afv" id="yNT-3f-ztt"/>

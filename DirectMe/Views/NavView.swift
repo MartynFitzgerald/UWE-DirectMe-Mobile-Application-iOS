@@ -26,7 +26,7 @@ struct NavView: View {
         UITabBar.appearance().backgroundImage = UIImage()
         UITabBar.appearance().isTranslucent = true
         UITabBar.appearance().backgroundColor = Colours.red
-        UITabBar.appearance().unselectedItemTintColor = Colours.lightGrey
+        UITabBar.appearance().unselectedItemTintColor = .systemGray
     }
     
     var body: some View {
